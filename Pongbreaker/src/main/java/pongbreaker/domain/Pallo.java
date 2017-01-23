@@ -29,6 +29,18 @@ public class Pallo extends Piirrettava {
     public void kaannaYNopeus() {
         yNopeus *= -1;
     }
+    
+    public int getR() {
+        return r;
+    }
+    
+    public int getXNopeus() {
+        return xNopeus;
+    }
+    
+    public int getYNopeus() {
+        return yNopeus;
+    }
 
     @Override
     public void piirra(Graphics g) {

@@ -27,7 +27,6 @@ public class PongbreakerTest {
         assertEquals(6, peli.getPallo().getR());
         assertEquals(peli.getLeveys() / 2 - 10, peli.getPallo().getX());
         assertEquals(peli.getKorkeus()/ 2 - 30, peli.getPallo().getY());
-
     }
 
 }

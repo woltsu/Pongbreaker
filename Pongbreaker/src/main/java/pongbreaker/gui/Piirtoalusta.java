@@ -9,7 +9,6 @@ import pongbreaker.peli.Pongbreaker;
 public class Piirtoalusta extends JPanel implements Paivitettava {
 
     private Pongbreaker peli;
-    
     private BufferedImage img;
     private Graphics gfx;
 
@@ -23,7 +22,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(gfx);
-        this.peli.getPallo().piirra(gfx);
+        peli.getPallo().piirra(gfx);
         g.drawImage(img, 0, 0, this);
     }
 

@@ -32,12 +32,12 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        this.piirtoalusta = new Piirtoalusta(peli);
-        container.add(this.piirtoalusta);
+        piirtoalusta = new Piirtoalusta(peli);
+        container.add(piirtoalusta);
     }
 
     public Paivitettava getPaivitettava() {
-        return this.piirtoalusta;
+        return piirtoalusta;
     }
 
 }

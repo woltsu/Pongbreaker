@@ -6,14 +6,12 @@ import java.awt.Graphics;
 public class Pallo extends Piirrettava {
 
     private int r;
-
     private int xNopeus;
     private int yNopeus;
 
     public Pallo(int r, int x, int y) {
         super(x, y);
         this.r = r;
-
         xNopeus = 3;
         yNopeus = 3;
     }

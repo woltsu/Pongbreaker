@@ -29,8 +29,8 @@ public class PalloTest {
     
     @Test
     public void alustaaPallonNopeudetOikein() {
-        assertEquals(2, pallo.getXNopeus());
-        assertEquals(2, pallo.getYNopeus());
+        assertEquals(3, pallo.getXNopeus());
+        assertEquals(3, pallo.getYNopeus());
     }
     
     @Test

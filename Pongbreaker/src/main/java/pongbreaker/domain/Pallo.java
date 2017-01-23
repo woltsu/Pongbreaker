@@ -14,8 +14,8 @@ public class Pallo extends Piirrettava {
         super(x, y);
         this.r = r;
 
-        xNopeus = 2;
-        yNopeus = 2;
+        xNopeus = 3;
+        yNopeus = 3;
     }
 
     public void liiku() {

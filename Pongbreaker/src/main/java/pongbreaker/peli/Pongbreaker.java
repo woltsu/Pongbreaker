@@ -19,7 +19,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         
         this.leveys = leveys;
         this.korkeus = korkeus;
-        this.pallo = new Pallo(6, this.leveys / 2, this.korkeus / 2 - 20);
+        this.pallo = new Pallo(6, this.leveys / 2 - 10, this.korkeus / 2 - 30);
     }
     
     public void setPaivitettava(Paivitettava paivitettava) {
@@ -28,6 +28,14 @@ public class Pongbreaker extends Timer implements ActionListener {
     
     public Pallo getPallo() {
         return this.pallo;
+    }
+    
+    public int getLeveys() {
+        return this.leveys;
+    }
+    
+    public int getKorkeus() {
+        return this.korkeus;
     }
     
     public void tarkistaOsuukoPalloReunoihin() {

@@ -33,4 +33,13 @@ public class PalloTest {
         assertEquals(2, pallo.getYNopeus());
     }
     
+    @Test
+    public void nopeuksienKaantaminenToimii() {
+        pallo.kaannaXNopeus();
+        assertEquals(-2, pallo.getXNopeus());
+        
+        pallo.kaannaYNopeus();
+        assertEquals(-2, pallo.getYNopeus());
+    }
+    
 }

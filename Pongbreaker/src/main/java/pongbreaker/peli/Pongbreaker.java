@@ -19,7 +19,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         
         this.leveys = leveys;
         this.korkeus = korkeus;
-        this.pallo = new Pallo(5, 50, 50);
+        this.pallo = new Pallo(6, 50, 50);
     }
     
     public void setPaivitettava(Paivitettava paivitettava) {

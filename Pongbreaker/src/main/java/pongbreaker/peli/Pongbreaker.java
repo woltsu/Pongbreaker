@@ -10,6 +10,7 @@ public class Pongbreaker extends Timer implements ActionListener {
 
     private int leveys;
     private int korkeus;
+    private int paatyrajanLeveys;
 
     private Paivitettava paivitettava;
     private Pallo pallo;
@@ -19,6 +20,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         addActionListener(this);
         this.leveys = leveys;
         this.korkeus = korkeus;
+        this.paatyrajanLeveys = 30;
         this.pallo = new Pallo(6, this.leveys / 2 - 10, this.korkeus / 2 - 30);
     }
 
@@ -37,6 +39,10 @@ public class Pongbreaker extends Timer implements ActionListener {
     public int getKorkeus() {
         return this.korkeus;
     }
+    
+    public int getPaatyrajanleveys() {
+        return this.paatyrajanLeveys;
+    }
 
     public void tarkistaOsuukoPalloReunoihin() {
         /*Luvut -10 ja -30 tulevat siitä, että näytettävä ikkunan koko ei ole sama kuin alkuperäisesti
@@ -52,11 +58,11 @@ public class Pongbreaker extends Timer implements ActionListener {
     
     public boolean tarkistaOhittaakoPalloPaatyrajan() {
         //Päätyrajat saattavat muuttua vielä
-        if (pallo.getX() < 50) {
+        if (pallo.getX() <= paatyrajanLeveys - pallo.getR()) {
             System.out.println("Pelaaja 1 hävisi");
             return true;
             
-        } else if (pallo.getX() > this.leveys - 50) {
+        } else if (pallo.getX() >= this.leveys - paatyrajanLeveys - 10 + pallo.getR()) {
             System.out.println("Pelaaja 2 hävisi");
             return true;
         }

@@ -30,28 +30,41 @@ public class PongbreakerTest {
     @Test
     public void havaitseeJosPalloOsuuReunoihin() {
         Pallo pallo = peli.getPallo();
-        
+
         pallo.setY(pallo.getR());
         peli.tarkistaOsuukoPalloReunoihin();
         assertEquals(-3, pallo.getYNopeus());
-        
+
         pallo.setY(300 - pallo.getR() - 30);
         peli.tarkistaOsuukoPalloReunoihin();
         assertEquals(3, pallo.getYNopeus());
         pallo.setY(peli.getKorkeus() / 2 - 30);
-        
+
         pallo.setX(pallo.getR());
         peli.tarkistaOsuukoPalloReunoihin();
         assertEquals(-3, pallo.getXNopeus());
-        
+
         pallo.setX(500 - pallo.getR() - 10);
         peli.tarkistaOsuukoPalloReunoihin();
         assertEquals(3, pallo.getXNopeus());
     }
-    
+
     @Test
-    public void palloEiVoiMennaYliRajojen() {
-        
+    public void peliHavaitseeJosPalloMeneePaatyrajojenYli() {
+        Pallo pallo = peli.getPallo();
+        assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
+
+        pallo.setX(peli.getPaatyrajanleveys());
+        assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
+
+        pallo.setX(peli.getPaatyrajanleveys() - pallo.getR());
+        assertTrue(peli.tarkistaOhittaakoPalloPaatyrajan());
+
+        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys());
+        assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
+
+        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys() + pallo.getR());
+        assertTrue(peli.tarkistaOhittaakoPalloPaatyrajan());
     }
 
 }

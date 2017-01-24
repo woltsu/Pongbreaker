@@ -23,6 +23,9 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
     protected void paintComponent(Graphics g) {
         super.paintComponent(gfx);
         peli.getPallo().piirra(gfx);
+        //Viivat todennäköisesti poistetaan jossakin vaiheessa
+        gfx.drawLine(50, 0, 50, 350);
+        gfx.drawLine(peli.getLeveys() - 50, 0, peli.getLeveys() - 50, peli.getKorkeus());
         g.drawImage(img, 0, 0, this);
     }
 

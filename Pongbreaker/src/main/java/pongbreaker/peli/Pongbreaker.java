@@ -49,10 +49,25 @@ public class Pongbreaker extends Timer implements ActionListener {
             pallo.kaannaYNopeus();
         }
     }
+    
+    public boolean tarkistaOhittaakoPalloPaatyrajan() {
+        //Päätyrajat saattavat muuttua vielä
+        if (pallo.getX() < 50) {
+            System.out.println("Pelaaja 1 hävisi");
+            return true;
+            
+        } else if (pallo.getX() > this.leveys - 50) {
+            System.out.println("Pelaaja 2 hävisi");
+            return true;
+        }
+        
+        return false;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         tarkistaOsuukoPalloReunoihin();
+        tarkistaOhittaakoPalloPaatyrajan();
         pallo.liiku();
         paivitettava.paivita();
         setDelay(30);

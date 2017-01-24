@@ -1,9 +1,6 @@
 package pongbreaker.peli;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import pongbreaker.domain.Pallo;
@@ -50,6 +47,11 @@ public class PongbreakerTest {
         pallo.setX(500 - pallo.getR() - 10);
         peli.tarkistaOsuukoPalloReunoihin();
         assertEquals(3, pallo.getXNopeus());
+    }
+    
+    @Test
+    public void palloEiVoiMennaYliRajojen() {
+        
     }
 
 }

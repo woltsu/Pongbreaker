@@ -39,4 +39,22 @@ public class PalloTest {
         assertEquals(-3, pallo.getYNopeus());
     }
     
+    @Test
+    public void pallonLiikkuminenOikealleJaVasemmalleToimii() {
+        pallo.liiku();
+        assertEquals(5 + pallo.getXNopeus(), pallo.getX());
+        pallo.kaannaXNopeus();
+        pallo.liiku();
+        assertEquals(5, pallo.getX());
+    }
+    
+    @Test
+    public void pallonLiikkuminenYlosJaAlasToimii() {
+        pallo.liiku();
+        assertEquals(5 + pallo.getYNopeus(), pallo.getY());
+        pallo.kaannaYNopeus();
+        pallo.liiku();
+        assertEquals(5, pallo.getY());
+    }
+    
 }

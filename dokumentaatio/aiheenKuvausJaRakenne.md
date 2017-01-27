@@ -12,4 +12,7 @@ Peliin olisi tarkoitus myös luoda erilaisia
 - Oman mailansa liikuttaminen
 - Power upp:ien aktivoiminen
 - Pelin jälkeen mahdollisuus lisätä oma suorituksensa highscore-listaan
-- Highscore-listan avaaminen
+- Highscore-listan avaaminen  
+
+**Luokkakaavio:**  
+![Luokkakaavio](/dokumentaatio/Luokkakaavio.png)

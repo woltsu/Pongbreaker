@@ -47,4 +47,12 @@ public class Pallo extends Peliolio {
         g.fillOval(x - r, y - r, 2 * r, 2 * r);
     }
 
+    @Override
+    public boolean osuuko(int x, int y) {
+        if (Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2) <= Math.pow(this.r, 2)) {
+            return true;
+        }
+        return false;
+    }
+
 }

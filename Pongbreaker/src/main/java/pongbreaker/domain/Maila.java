@@ -26,5 +26,15 @@ public class Maila extends Peliolio {
         g.setColor(Color.white);
         g.fillRect(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
     }
+
+    @Override
+    public boolean osuuko(int x, int y) {
+        if (x >= this.x - this.leveys / 2 && x <= this.x + this.leveys / 2) {
+            if (y >= this.y - this.korkeus / 2 && y <= this.y + this.korkeus / 2) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

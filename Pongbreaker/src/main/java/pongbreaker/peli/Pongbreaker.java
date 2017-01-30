@@ -81,9 +81,11 @@ public class Pongbreaker extends Timer implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         tarkistaOsuukoPalloReunoihin();
         tarkistaOhittaakoPalloPaatyrajan();
-        pelaaja.liiku();
+
         tormayksienHavaitsija.tarkistaTormaykset();
+        pelaaja.liiku();
         pallo.liiku();
+
         tarkistaMeneekoMailaYliRajojen();
 
         paivitettava.paivita();

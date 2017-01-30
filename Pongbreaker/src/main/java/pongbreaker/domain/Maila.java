@@ -3,6 +3,7 @@ package pongbreaker.domain;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import javafx.scene.shape.Circle;
 
 public class Maila extends Peliolio {
 

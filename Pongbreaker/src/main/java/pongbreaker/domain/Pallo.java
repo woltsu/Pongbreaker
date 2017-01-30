@@ -2,23 +2,28 @@ package pongbreaker.domain;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Pallo extends Peliolio {
 
     private int r;
     private int xNopeus;
     private int yNopeus;
+    
+    private Rectangle hitbox;
 
     public Pallo(int r, int x, int y) {
         super(x, y);
         this.r = r;
         xNopeus = 3;
         yNopeus = 3;
+        this.hitbox = new Rectangle(x - r, y - r, 2 * r, 2 * r);
     }
 
     public void liiku() {
         super.x += xNopeus;
         super.y += yNopeus;
+        hitbox.setLocation(x - r, y - r);
     }
 
     public void kaannaXNopeus() {
@@ -40,6 +45,10 @@ public class Pallo extends Peliolio {
     public int getR() {
         return r;
     }
+    
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
 
     @Override
     public void piirra(Graphics g) {
@@ -47,12 +56,12 @@ public class Pallo extends Peliolio {
         g.fillOval(x - r, y - r, 2 * r, 2 * r);
     }
 
-    @Override
-    public boolean osuuko(int x, int y) {
-        if (Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2) <= Math.pow(this.r, 2)) {
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean osuuko(int x, int y) {
+//        if (Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2) <= Math.pow(this.r, 2)) {
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

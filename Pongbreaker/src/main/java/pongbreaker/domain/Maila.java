@@ -2,16 +2,20 @@ package pongbreaker.domain;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Maila extends Peliolio {
 
     private int leveys;
     private int korkeus;
+    
+    private Rectangle hitbox;
 
     public Maila(int x, int y) {
         super(x, y);
         this.leveys = 10;
         this.korkeus = 45;
+        this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
     }
 
     public int getLeveys() {
@@ -21,6 +25,10 @@ public class Maila extends Peliolio {
     public int getKorkeus() {
         return korkeus;
     }
+    
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
 
     @Override
     public void piirra(Graphics g) {
@@ -28,12 +36,12 @@ public class Maila extends Peliolio {
         g.fillRect(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
     }
 
-    @Override
-    public boolean osuuko(int x, int y) {
-        if (x >= this.x - this.leveys / 2 && x <= this.x + this.leveys / 2 && y >= this.y - this.korkeus / 2 && y <= this.y + this.korkeus / 2) {
-            return true;
-        }
-        return false;
-    }
+//    @Override
+//    public boolean osuuko(int x, int y) {
+//        if (x >= this.x - this.leveys / 2 && x <= this.x + this.leveys / 2 && y >= this.y - this.korkeus / 2 && y <= this.y + this.korkeus / 2) {
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

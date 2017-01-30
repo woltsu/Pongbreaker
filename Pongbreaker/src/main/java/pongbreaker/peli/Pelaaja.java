@@ -20,6 +20,7 @@ public class Pelaaja {
 
     public void liiku() {
         maila.setY(maila.getY() + (int) (nopeus * kiihtyvyys));
+        maila.getHitbox().setLocation(maila.getX() - maila.getLeveys() / 2, maila.getY() - maila.getKorkeus() / 2);
         if (!liikkuuko) {
             if (this.kiihtyvyys > 0) {
                 if (this.kiihtyvyys - 1 < 0) {
@@ -58,5 +59,5 @@ public class Pelaaja {
     public Maila getMaila() {
         return this.maila;
     }
-    
+
 }

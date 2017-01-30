@@ -29,6 +29,5 @@ public abstract class Peliolio {
     }
 
     public abstract void piirra(Graphics g);
-    public abstract boolean osuuko(int x, int y);
 
 }

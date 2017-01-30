@@ -9,6 +9,8 @@ public class Maila extends Piirrettava {
     
     public Maila(int x, int y) {
         super(x, y);
+        this.leveys = 10;
+        this.korkeus = 45;
     }
 
     @Override

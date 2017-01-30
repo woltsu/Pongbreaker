@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
+import pongbreaker.domain.Piirrettava;
 import pongbreaker.peli.Pongbreaker;
 
 public class Piirtoalusta extends JPanel implements Paivitettava {
@@ -21,11 +22,13 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(gfx);
-        peli.getPallo().piirra(gfx);
+        super.paintComponent(gfx);;
+        for (Piirrettava piirrettava : this.peli.getPiirrettavat()) {
+            piirrettava.piirra(gfx);
+        }
         //Viivat todennäköisesti poistetaan jossakin vaiheessa
-        gfx.drawLine(peli.getPaatyrajanleveys(), 0, peli.getPaatyrajanleveys(), 350);
-        gfx.drawLine(peli.getLeveys() - peli.getPaatyrajanleveys() - 10, 0, peli.getLeveys() - peli.getPaatyrajanleveys() - 10, peli.getKorkeus());
+        //gfx.drawLine(peli.getPaatyrajanleveys(), 0, peli.getPaatyrajanleveys(), 350);
+        //gfx.drawLine(peli.getLeveys() - peli.getPaatyrajanleveys() - 10, 0, peli.getLeveys() - peli.getPaatyrajanleveys() - 10, peli.getKorkeus());
         g.drawImage(img, 0, 0, this);
     }
 

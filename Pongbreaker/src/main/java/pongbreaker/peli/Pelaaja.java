@@ -33,4 +33,8 @@ public class Pelaaja {
 
         }
     }
+    
+    public Maila getMaila() {
+        return this.maila;
+    }
 }

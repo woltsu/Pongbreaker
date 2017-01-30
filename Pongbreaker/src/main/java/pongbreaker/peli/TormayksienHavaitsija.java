@@ -16,7 +16,9 @@ public class TormayksienHavaitsija {
     public void tarkistaTormaykset() {
         
         if (pelaaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
+            
             pallo.kaannaXNopeus();
+            
         }
         
     }

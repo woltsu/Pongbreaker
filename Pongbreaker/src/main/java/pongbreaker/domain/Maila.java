@@ -12,6 +12,14 @@ public class Maila extends Piirrettava {
         this.leveys = 10;
         this.korkeus = 45;
     }
+    
+    public int getLeveys() {
+        return leveys;
+    }
+    
+    public int getKorkeus() {
+        return korkeus;
+    }
 
     @Override
     public void piirra(Graphics g) {

@@ -34,6 +34,9 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
         container.add(piirtoalusta);
+        
+        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(this.peli.getPelaaja());
+        frame.addKeyListener(kuuntelija);
     }
 
     public Paivitettava getPaivitettava() {

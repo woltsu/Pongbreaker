@@ -65,7 +65,7 @@ public class Pongbreaker extends Timer implements ActionListener {
 
         return false;
     }
-    
+
     public boolean tarkistaMeneekoMailaYliRajojen() {
         if (pelaaja.getMaila().getY() < pelaaja.getMaila().getKorkeus() / 2) {
             pelaaja.getMaila().setY(pelaaja.getMaila().getKorkeus() / 2);
@@ -82,10 +82,10 @@ public class Pongbreaker extends Timer implements ActionListener {
         tarkistaOsuukoPalloReunoihin();
         tarkistaOhittaakoPalloPaatyrajan();
         pallo.liiku();
+        tormayksienHavaitsija.tarkistaTormaykset();
         pelaaja.liiku();
         tarkistaMeneekoMailaYliRajojen();
-        tormayksienHavaitsija.tarkistaTormaykset();
-        
+
         paivitettava.paivita();
         setDelay(30);
     }

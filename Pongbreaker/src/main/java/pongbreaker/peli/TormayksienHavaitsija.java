@@ -15,9 +15,7 @@ public class TormayksienHavaitsija {
     
     public void tarkistaTormaykset() {
         
-        if (this.pallo.osuuko(this.pelaaja.getMaila().getX(), this.pelaaja.getMaila().getY())) {
-            this.pallo.kaannaXNopeus();
-        }
+        
         
     }
 }

@@ -3,7 +3,7 @@ package pongbreaker.domain;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Pallo extends Piirrettava {
+public class Pallo extends Peliolio {
 
     private int r;
     private int xNopeus;

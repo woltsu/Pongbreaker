@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.Timer;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
-import pongbreaker.domain.Piirrettava;
+import pongbreaker.domain.Peliolio;
 import pongbreaker.gui.Paivitettava;
 
 public class Pongbreaker extends Timer implements ActionListener {
@@ -20,7 +20,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     private Pallo pallo;
     private Pelaaja pelaaja;
 
-    private List<Piirrettava> piirrettavat;
+    private List<Peliolio> piirrettavat;
 
     public Pongbreaker(int leveys, int korkeus) {
         super(100, null);
@@ -111,7 +111,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         return this.paatyrajanLeveys;
     }
 
-    public List<Piirrettava> getPiirrettavat() {
+    public List<Peliolio> getPiirrettavat() {
         return this.piirrettavat;
     }
 

@@ -2,12 +2,12 @@ package pongbreaker.domain;
 
 import java.awt.Graphics;
 
-public abstract class Piirrettava {
+public abstract class Peliolio {
 
     protected int x;
     protected int y;
 
-    public Piirrettava(int x, int y) {
+    public Peliolio(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -29,5 +29,6 @@ public abstract class Piirrettava {
     }
 
     public abstract void piirra(Graphics g);
+    public abstract void tarkistaOsuukoJohonkin();
 
 }

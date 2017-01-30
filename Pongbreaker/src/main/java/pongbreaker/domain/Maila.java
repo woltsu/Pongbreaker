@@ -3,7 +3,7 @@ package pongbreaker.domain;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Maila extends Piirrettava {
+public class Maila extends Peliolio {
     private int leveys;
     private int korkeus;
     

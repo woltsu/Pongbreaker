@@ -17,17 +17,8 @@ public class TormayksienHavaitsija {
     public void tarkistaTormaykset() {
 
         if (pelaaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
-
-            if (pallo.getY() >= this.pelaaja.getMaila().getY() + this.pelaaja.getMaila().getKorkeus() / 2) {
-                pallo.kaannaYNopeus();
-                pallo.liiku();
-            } else if (pallo.getY() <= this.pelaaja.getMaila().getY() - this.pelaaja.getMaila().getKorkeus() / 2) {
-                pallo.kaannaYNopeus();
-                pallo.liiku();
-            } else {
-                pallo.kaannaXNopeus();
-            }
-
+            pallo.kaannaXNopeus();
+            pallo.setX(pelaaja.getMaila().getX() + pelaaja.getMaila().getLeveys() / 2 + pallo.getR());
         }
 
     }

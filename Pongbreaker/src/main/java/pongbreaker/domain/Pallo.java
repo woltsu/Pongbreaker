@@ -49,7 +49,9 @@ public class Pallo extends Peliolio {
     public void setYNopeus(int nopeus) {
         yNopeus = nopeus;
     }
-
+    
+   
+    
     public int getR() {
         return r;
     }

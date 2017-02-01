@@ -8,20 +8,35 @@ public class Vastustaja {
     private Maila maila;
     private Pallo seurattavaPallo;
 
-    private int nopeus;
+    private double nopeus;
+    private double kiihtyvyys;
 
     public Vastustaja(Maila maila, Pallo seurattavaPallo) {
         this.maila = maila;
         this.seurattavaPallo = seurattavaPallo;
         this.nopeus = 2;
+        this.kiihtyvyys = 1;
     }
 
     public void liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {
-            maila.setY(maila.getY() + this.nopeus);
+            
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 4) {
+                maila.setY(maila.getY() + 4);
+            
+            } else {
+                maila.setY(maila.getY() + Math.abs(seurattavaPallo.getY() - maila.getY()));
+                
+            }
 
         } else if (maila.getY() > seurattavaPallo.getY()) {
-            maila.setY(maila.getY() - this.nopeus);
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 4) {
+                maila.setY(maila.getY() - 4);
+            
+            } else {
+                maila.setY(maila.getY() - Math.abs(seurattavaPallo.getY() - maila.getY()));
+                
+            }
 
         }
         

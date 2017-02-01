@@ -9,7 +9,7 @@ public class Pallo extends Peliolio {
     private int r;
     private int xNopeus;
     private int yNopeus;
-    
+    private double kiihtyvyys;
     private Rectangle hitbox;
 
     public Pallo(int r, int x, int y) {
@@ -17,12 +17,13 @@ public class Pallo extends Peliolio {
         this.r = r;
         xNopeus = 3;
         yNopeus = 3;
+        kiihtyvyys = 1;
         this.hitbox = new Rectangle(x - r, y - r, 2 * r, 2 * r);
     }
 
     public void liiku() {
-        super.x += xNopeus;
-        super.y += yNopeus;
+        super.x += xNopeus * kiihtyvyys;
+        super.y += yNopeus * kiihtyvyys;
         hitbox.setLocation(x - r, y - r);
     }
 
@@ -50,7 +51,13 @@ public class Pallo extends Peliolio {
         yNopeus = nopeus;
     }
     
-   
+    public double getKiihtyvyys() {
+        return this.kiihtyvyys;
+    }
+    
+    public void setKiihtyvyys(double kiihtyvyys) {
+        this.kiihtyvyys = kiihtyvyys;
+    }
     
     public int getR() {
         return r;

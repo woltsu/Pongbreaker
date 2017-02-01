@@ -48,12 +48,24 @@ public class Pongbreaker extends Timer implements ActionListener {
     public void tarkistaOsuukoPalloReunoihin() {
         /*Luvut -10 ja -30 tulevat siitä, että näytettävä ikkunan koko ei ole sama kuin alkuperäisesti
         asetettu leveys ja korkeus*/
-        if (pallo.getX() <= pallo.getR() || pallo.getX() >= this.leveys - pallo.getR() - 10) {
+        if (pallo.getX() <= pallo.getR()) {
+            pallo.setX(pallo.getR());
             pallo.kaannaXNopeus();
+            
+        } else if (pallo.getX() >= leveys - pallo.getR() - 10) {
+            pallo.setX(leveys - pallo.getR() - 10);
+            pallo.kaannaXNopeus();
+            
         }
 
-        if (pallo.getY() <= pallo.getR() || pallo.getY() >= this.korkeus - pallo.getR() - 30) {
+        if (pallo.getY() <= pallo.getR()) {
+            pallo.setY(pallo.getR());
             pallo.kaannaYNopeus();
+            
+        } else if (pallo.getY() >= this.korkeus - pallo.getR() - 30) {
+            pallo.setY(korkeus - pallo.getR() - 30);
+            pallo.kaannaYNopeus();
+            
         }
     }
 

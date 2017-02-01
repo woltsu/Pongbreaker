@@ -17,15 +17,17 @@ public class TormayksienHavaitsija {
     }
 
     public void tarkistaTormaykset() {
-
+        //Tällä hetkellä pallon kiihtyvyys nousee jokaisen osuman jälkeen
         if (pelaaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
             pallo.kaannaXNopeus();
             pallo.setX(pelaaja.getMaila().getX() + pelaaja.getMaila().getLeveys() / 2 + pallo.getR());
+            pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.1);
         }
 
         if (vastustaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
             pallo.kaannaXNopeus();
             pallo.setX(vastustaja.getMaila().getX() - vastustaja.getMaila().getLeveys() / 2 - pallo.getR());
+            pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.1);
         }
 
     }

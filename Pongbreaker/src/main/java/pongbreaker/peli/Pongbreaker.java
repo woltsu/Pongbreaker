@@ -71,14 +71,15 @@ public class Pongbreaker extends Timer implements ActionListener {
         return false;
     }
 
-    public boolean tarkistaMeneekoMailaYliRajojen() {
-        if (pelaaja.getMaila().getY() < pelaaja.getMaila().getKorkeus() / 2) {
-            pelaaja.getMaila().setY(pelaaja.getMaila().getKorkeus() / 2);
+    public boolean tarkistaMeneekoMailaYliRajojen(Maila maila) {
+        if (maila.getY() < maila.getKorkeus() / 2) {
+            maila.setY(maila.getKorkeus() / 2);
             return true;
-        } else if (pelaaja.getMaila().getY() > this.korkeus - 30 - pelaaja.getMaila().getKorkeus() / 2) {
-            pelaaja.getMaila().setY(this.korkeus - 30 - pelaaja.getMaila().getKorkeus() / 2);
+        } else if (maila.getY() > this.korkeus - 30 - maila.getKorkeus() / 2) {
+            maila.setY(this.korkeus - 30 - maila.getKorkeus() / 2);
             return true;
         }
+        
         return false;
     }
 
@@ -92,7 +93,8 @@ public class Pongbreaker extends Timer implements ActionListener {
         tormayksienHavaitsija.tarkistaTormaykset();
         pallo.liiku();
 
-        tarkistaMeneekoMailaYliRajojen();
+        tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
+        tarkistaMeneekoMailaYliRajojen(vastustaja.getMaila());
 
         paivitettava.paivita();
         setDelay(30);

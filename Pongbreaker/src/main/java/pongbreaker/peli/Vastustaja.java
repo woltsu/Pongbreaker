@@ -8,17 +8,20 @@ public class Vastustaja {
     private Maila maila;
     private Pallo seurattavaPallo;
     
+    private int nopeus;
+    
     public Vastustaja(Maila maila, Pallo seurattavaPallo) {
         this.maila = maila;
         this.seurattavaPallo = seurattavaPallo;
+        this.nopeus = 2;
     }
     
     public void liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {
-            maila.setY(maila.getY() + 1);
+            maila.setY(maila.getY() + this.nopeus);
         
         } else if (maila.getY() > seurattavaPallo.getY()) {
-            maila.setY(maila.getY() - 1);
+            maila.setY(maila.getY() - this.nopeus);
             
         }
     }

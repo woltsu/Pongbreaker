@@ -35,7 +35,7 @@ public class Kayttoliittyma implements Runnable {
         piirtoalusta = new Piirtoalusta(peli);
         container.add(piirtoalusta);
         
-        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(this.peli.getPelaaja());
+        Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli);
         frame.addKeyListener(kuuntelija);
     }
 

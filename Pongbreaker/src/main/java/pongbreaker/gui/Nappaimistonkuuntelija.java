@@ -3,42 +3,48 @@ package pongbreaker.gui;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import pongbreaker.peli.Pelaaja;
+import pongbreaker.peli.Pongbreaker;
 
 public class Nappaimistonkuuntelija implements KeyListener {
 
+    private Pongbreaker peli;
     private Pelaaja pelaaja;
-
-    public Nappaimistonkuuntelija(Pelaaja pelaaja) {
-        this.pelaaja = pelaaja;
+    
+    public Nappaimistonkuuntelija(Pongbreaker peli) {
+        this.peli = peli;
+        this.pelaaja = peli.getPelaaja();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            this.pelaaja.setLiikkuuko(true);
-            this.pelaaja.vahennaKiihtyvyytta();
+            pelaaja.setLiikkuuko(true);
+            pelaaja.vahennaKiihtyvyytta();
             
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            this.pelaaja.setLiikkuuko(true);
-            this.pelaaja.lisaaKiihtyvyytta();
+            pelaaja.setLiikkuuko(true);
+            pelaaja.lisaaKiihtyvyytta();
             
+        } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (!peli.onkoPaalla()) {
+                peli.kaynnistaPeli();
+            }
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            this.pelaaja.setLiikkuuko(false);
+            pelaaja.setLiikkuuko(false);
             
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            this.pelaaja.setLiikkuuko(false);
+            pelaaja.setLiikkuuko(false);
             
         }
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

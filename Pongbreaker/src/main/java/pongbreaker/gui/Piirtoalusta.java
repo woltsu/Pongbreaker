@@ -22,13 +22,13 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(gfx);;
+        super.paintComponent(gfx);
         for (Peliolio piirrettava : this.peli.getPiirrettavat()) {
             piirrettava.piirra(gfx);
         }
-        //Viivat todennäköisesti poistetaan jossakin vaiheessa
-        //gfx.drawLine(peli.getPaatyrajanleveys(), 0, peli.getPaatyrajanleveys(), 350);
-        //gfx.drawLine(peli.getLeveys() - peli.getPaatyrajanleveys() - 10, 0, peli.getLeveys() - peli.getPaatyrajanleveys() - 10, peli.getKorkeus());
+        if (!peli.onkoPaalla()) {
+            gfx.drawString("Press spacebar", 200, 175);
+        }
         g.drawImage(img, 0, 0, this);
     }
 

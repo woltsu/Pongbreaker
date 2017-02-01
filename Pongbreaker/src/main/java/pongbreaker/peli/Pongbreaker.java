@@ -16,6 +16,8 @@ public class Pongbreaker extends Timer implements ActionListener {
     private int korkeus;
     private int paatyrajanLeveys;
 
+    private boolean onkoPaalla;
+
     private Paivitettava paivitettava;
     private Pallo pallo;
     private Pelaaja pelaaja;
@@ -31,9 +33,11 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.korkeus = korkeus;
         this.paatyrajanLeveys = 30;
 
+        this.onkoPaalla = false;
+
         this.pallo = new Pallo(6, this.leveys / 2 - 10, this.korkeus / 2 - 30);
-        this.pelaaja = new Pelaaja(new Maila(this.paatyrajanLeveys, this.korkeus / 2));
-        this.vastustaja = new Vastustaja(new Maila(this.leveys - 10 - this.paatyrajanLeveys, this.korkeus / 2), pallo);
+        this.pelaaja = new Pelaaja(new Maila(this.paatyrajanLeveys, this.korkeus / 2 - 30));
+        this.vastustaja = new Vastustaja(new Maila(this.leveys - 10 - this.paatyrajanLeveys, this.korkeus / 2 - 30), pallo);
         pallo.setYNopeus(2);
         pallo.setXNopeus(4);
 
@@ -51,32 +55,34 @@ public class Pongbreaker extends Timer implements ActionListener {
         if (pallo.getX() <= pallo.getR()) {
             pallo.setX(pallo.getR());
             pallo.kaannaXNopeus();
-            
+
         } else if (pallo.getX() >= leveys - pallo.getR() - 10) {
             pallo.setX(leveys - pallo.getR() - 10);
             pallo.kaannaXNopeus();
-            
+
         }
 
         if (pallo.getY() <= pallo.getR()) {
             pallo.setY(pallo.getR());
             pallo.kaannaYNopeus();
-            
+
         } else if (pallo.getY() >= this.korkeus - pallo.getR() - 30) {
             pallo.setY(korkeus - pallo.getR() - 30);
             pallo.kaannaYNopeus();
-            
+
         }
     }
 
     public boolean tarkistaOhittaakoPalloPaatyrajan() {
         //Tulostaminen on väliaikasta
-        if (pallo.getX() <= paatyrajanLeveys - pallo.getR()) {
+        if (pallo.getX() <= paatyrajanLeveys) {
             System.out.println("Pelaaja 1 hävisi");
+            onkoPaalla = false;
             return true;
 
-        } else if (pallo.getX() >= this.leveys - paatyrajanLeveys - 10 + pallo.getR()) {
+        } else if (pallo.getX() >= this.leveys - paatyrajanLeveys - 10) {
             System.out.println("Pelaaja 2 hävisi");
+            onkoPaalla = false;
             return true;
         }
 
@@ -91,22 +97,24 @@ public class Pongbreaker extends Timer implements ActionListener {
             maila.setY(this.korkeus - 30 - maila.getKorkeus() / 2);
             return true;
         }
-        
+
         return false;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        tarkistaOsuukoPalloReunoihin();
-        tarkistaOhittaakoPalloPaatyrajan();
+        if (onkoPaalla) {
+            tarkistaOsuukoPalloReunoihin();
+            tarkistaOhittaakoPalloPaatyrajan();
 
-        pelaaja.liiku();
-        vastustaja.liiku();
-        tormayksienHavaitsija.tarkistaTormaykset();
-        pallo.liiku();
+            pelaaja.liiku();
+            vastustaja.liiku();
+            tormayksienHavaitsija.tarkistaTormaykset();
+            pallo.liiku();
 
-        tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
-        tarkistaMeneekoMailaYliRajojen(vastustaja.getMaila());
+            tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
+            tarkistaMeneekoMailaYliRajojen(vastustaja.getMaila());
+        }
 
         paivitettava.paivita();
         setDelay(30);
@@ -136,6 +144,17 @@ public class Pongbreaker extends Timer implements ActionListener {
         return this.paatyrajanLeveys;
     }
 
+    public boolean onkoPaalla() {
+        return this.onkoPaalla;
+    }
+    
+    public void kaynnistaPeli() {
+        pallo.setX(leveys / 2 - 10);
+        pallo.setY(korkeus / 2 - 30);
+        pallo.setKiihtyvyys(1);
+        this.onkoPaalla = true;
+    }
+    
     public List<Peliolio> getPiirrettavat() {
         return this.piirrettavat;
     }

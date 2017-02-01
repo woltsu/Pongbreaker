@@ -30,6 +30,8 @@ public class PongbreakerTest {
     @Test
     public void havaitseeJosPalloOsuuReunoihin() {
         Pallo pallo = peli.getPallo();
+        pallo.setXNopeus(3);
+        pallo.setYNopeus(3);
 
         pallo.setY(pallo.getR());
         peli.tarkistaOsuukoPalloReunoihin();

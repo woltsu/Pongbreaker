@@ -41,7 +41,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
-        this.tormayksienHavaitsija = new TormayksienHavaitsija(pallo, pelaaja);
+        this.tormayksienHavaitsija = new TormayksienHavaitsija(pallo, pelaaja, vastustaja);
 
     }
 

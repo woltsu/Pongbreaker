@@ -7,3 +7,4 @@ Päivä | Tunnit | Kuvaus
 25.01.2017 | 1.5h | Pit-raportti ja Checkstyle-raportti
 27.01.2017 | 1h | Luokkakaavio
 30.01.2017 | 4h | Lisättiin KeyListener, pelilogiikkaa sekä hitboxit
+01.02.2017 | 2h | Lisättiin vastustaja sekä pelilogiikkaa

@@ -21,8 +21,8 @@ public class Vastustaja {
     public void liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {
             
-            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 4) {
-                maila.setY(maila.getY() + 4);
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 5) {
+                maila.setY(maila.getY() + 5);
             
             } else {
                 maila.setY(maila.getY() + Math.abs(seurattavaPallo.getY() - maila.getY()));
@@ -30,8 +30,8 @@ public class Vastustaja {
             }
 
         } else if (maila.getY() > seurattavaPallo.getY()) {
-            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 4) {
-                maila.setY(maila.getY() - 4);
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 5) {
+                maila.setY(maila.getY() - 5);
             
             } else {
                 maila.setY(maila.getY() - Math.abs(seurattavaPallo.getY() - maila.getY()));

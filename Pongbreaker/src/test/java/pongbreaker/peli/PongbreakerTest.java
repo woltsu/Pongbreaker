@@ -56,16 +56,16 @@ public class PongbreakerTest {
         Pallo pallo = peli.getPallo();
         assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
 
-        pallo.setX(peli.getPaatyrajanleveys());
+        pallo.setX(peli.getPaatyrajanleveys() + 1);
         assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
 
-        pallo.setX(peli.getPaatyrajanleveys() - pallo.getR());
+        pallo.setX(peli.getPaatyrajanleveys());
         assertTrue(peli.tarkistaOhittaakoPalloPaatyrajan());
 
-        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys());
+        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys() - 1);
         assertFalse(peli.tarkistaOhittaakoPalloPaatyrajan());
 
-        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys() + pallo.getR());
+        pallo.setX(peli.getLeveys() - 10 - peli.getPaatyrajanleveys());
         assertTrue(peli.tarkistaOhittaakoPalloPaatyrajan());
     }
 

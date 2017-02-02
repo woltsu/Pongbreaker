@@ -3,6 +3,7 @@ package pongbreaker.domain;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.util.Random;
 
 public class Pallo extends Peliolio {
 
@@ -67,6 +68,7 @@ public class Pallo extends Peliolio {
         return r;
     }
     
+    @Override
     public Rectangle getHitbox() {
         return hitbox;
     }
@@ -78,12 +80,29 @@ public class Pallo extends Peliolio {
         g.fillRect(x - r, y - r, 2 * r, 2 * r);
     }
 
-//    @Override
-//    public boolean osuuko(int x, int y) {
-//        if (Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2) <= Math.pow(this.r, 2)) {
-//            return true;
-//        }
-//        return false;
-//    }
+    @Override
+    public void reagoiOsumaan() {
+        kaannaXNopeus();
+        Random r = new Random();
+        int uusiXNopeus = 2 + r.nextInt(2) + 1;
+        int uusiYNopeus = 2 + r.nextInt(2) + 1;
+        
+        if (xNopeus > 0) {
+            xNopeus = uusiXNopeus;
+        } else {
+            xNopeus = -1 * uusiXNopeus;
+        }
+        
+        if (yNopeus > 0) {
+            yNopeus = uusiYNopeus;
+        } else {
+            yNopeus = -1 * uusiYNopeus;
+        }
+        
+        if (kiihtyvyys < 2.45) {
+            kiihtyvyys += 0.05;
+        }
+        
+    }
 
 }

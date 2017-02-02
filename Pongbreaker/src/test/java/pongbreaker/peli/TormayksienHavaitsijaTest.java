@@ -1,16 +1,17 @@
 package pongbreaker.peli;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+import pongbreaker.domain.Peliolio;
 
 public class TormayksienHavaitsijaTest {
 
     Pallo pallo;
-    Pelaaja pelaaja;
-    Vastustaja vastustaja;
     TormayksienHavaitsija havaitsija;
 
     Maila pelaajanMaila;
@@ -26,9 +27,11 @@ public class TormayksienHavaitsijaTest {
         pelaajanMaila = new Maila(100, 100);
         vastustajanMaila = new Maila(300, 100);
 
-        pelaaja = new Pelaaja(pelaajanMaila);
-        vastustaja = new Vastustaja(vastustajanMaila, pallo);
-        havaitsija = new TormayksienHavaitsija(pallo, pelaaja, vastustaja);
+        List<Peliolio> pelioliot = new ArrayList<>();
+        pelioliot.add(pallo);
+        pelioliot.add(pelaajanMaila);
+        pelioliot.add(vastustajanMaila);
+        havaitsija = new TormayksienHavaitsija(pelioliot);
     }
 
     @Test

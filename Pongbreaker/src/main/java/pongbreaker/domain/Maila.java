@@ -27,6 +27,7 @@ public class Maila extends Peliolio {
         return korkeus;
     }
     
+    @Override
     public Rectangle getHitbox() {
         return hitbox;
     }
@@ -35,6 +36,11 @@ public class Maila extends Peliolio {
     public void piirra(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
+    }
+
+    @Override
+    public void reagoiOsumaan() {
+        
     }
 
 }

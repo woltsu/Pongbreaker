@@ -1,6 +1,7 @@
 package pongbreaker.domain;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class Peliolio {
 
@@ -29,5 +30,7 @@ public abstract class Peliolio {
     }
 
     public abstract void piirra(Graphics g);
+    public abstract void reagoiOsumaan();
+    public abstract Rectangle getHitbox();
 
 }

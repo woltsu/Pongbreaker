@@ -31,13 +31,13 @@ public class PalloTest {
     public void alustaaPallonNopeudetJaKiihtyvyydenOikein() {
         assertEquals(3, pallo.getXNopeus());
         assertEquals(3, pallo.getYNopeus());
-        assertEquals(1, (int) pallo.getKiihtyvyys());
+        assertEquals(1, pallo.getKiihtyvyys(), 0);
     }
     
     @Test
     public void alustaaHitboxinOikein() {
-        assertEquals(0, (int) pallo.getHitbox().x);
-        assertEquals(0, (int) pallo.getHitbox().y);
+        assertEquals(0, pallo.getHitbox().x, 0);
+        assertEquals(0, pallo.getHitbox().y, 0);
     }
     
     @Test

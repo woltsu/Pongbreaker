@@ -55,6 +55,22 @@ public class Pelaaja {
     public void setLiikkuuko(boolean liikkuuko) {
         this.liikkuuko = liikkuuko;
     }
+    
+    public double getNopeus() {
+        return this.nopeus;
+    }
+    
+    public double getKiihtyvyys() {
+        return this.kiihtyvyys;
+    }
+    
+    public void setKiihtyvyys(double kiihtyvyys) {
+        this.kiihtyvyys = kiihtyvyys;
+    }
+    
+    public void setNopeus(double nopeus) {
+        this.nopeus = nopeus;
+    }
 
     public Maila getMaila() {
         return this.maila;

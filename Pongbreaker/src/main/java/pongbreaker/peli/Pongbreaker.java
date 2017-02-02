@@ -74,14 +74,13 @@ public class Pongbreaker extends Timer implements ActionListener {
     }
 
     public boolean tarkistaOhittaakoPalloPaatyrajan() {
-        //Tulostaminen on väliaikasta
         if (pallo.getX() <= paatyrajanLeveys) {
-            System.out.println("Pelaaja 1 hävisi");
+            //System.out.println("Pelaaja 1 hävisi");
             onkoPaalla = false;
             return true;
 
         } else if (pallo.getX() >= this.leveys - paatyrajanLeveys - 10) {
-            System.out.println("Pelaaja 2 hävisi");
+            //System.out.println("Pelaaja 2 hävisi");
             onkoPaalla = false;
             return true;
         }
@@ -117,7 +116,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
 
         paivitettava.paivita();
-        setDelay(30);
+        setDelay(22);
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

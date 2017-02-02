@@ -10,7 +10,7 @@ public class PalloTest {
     
     @Before
     public void setUp() {
-        this.pallo = new Pallo(5, 5, 5);
+        pallo = new Pallo(5, 5, 5);
         pallo.setXNopeus(3);
         pallo.setYNopeus(3);
         pallo.setKiihtyvyys(1);

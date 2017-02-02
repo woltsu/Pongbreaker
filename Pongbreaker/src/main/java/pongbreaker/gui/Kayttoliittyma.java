@@ -18,7 +18,7 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame("Pong");
+        frame = new JFrame("Pongbreaker");
         frame.setPreferredSize(new Dimension(500, 350));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

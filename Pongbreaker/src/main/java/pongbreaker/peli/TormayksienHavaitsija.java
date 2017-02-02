@@ -33,7 +33,7 @@ public class TormayksienHavaitsija {
             arvoUudetNopeudetPallolle();
             return true;
         }
-        
+
         return false;
     }
 
@@ -53,7 +53,9 @@ public class TormayksienHavaitsija {
         } else {
             pallo.setYNopeus(-1 * yNopeus);
         }
-        //Tällä hetkellä pallo kiihtyy joka osuman jälkeen
-        pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.1);
+        //Tällä hetkellä pallo kiihtyy joka osuman jälkeen, ei kuitenkaan liikaa ettei pallo mene mailan läpi
+        if (pallo.getKiihtyvyys() < 2.45) {
+            pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.05);
+        }
     }
 }

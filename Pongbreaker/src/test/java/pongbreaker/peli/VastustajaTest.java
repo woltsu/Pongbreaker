@@ -1,45 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pongbreaker.peli;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pongbreaker.domain.Maila;
+import pongbreaker.domain.Pallo;
 
-/**
- *
- * @author wolli
- */
 public class VastustajaTest {
-    
-    public VastustajaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
+    Maila maila;
+    Pallo pallo;
+    Vastustaja vastustaja;
+
     @Before
     public void setUp() {
+        maila = new Maila(100, 100);
+        pallo = new Pallo(5, 50, 100);
+        vastustaja = new Vastustaja(maila, pallo);
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

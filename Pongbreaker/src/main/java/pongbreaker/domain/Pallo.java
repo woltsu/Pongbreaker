@@ -24,6 +24,10 @@ public class Pallo extends Peliolio {
     public void liiku() {
         super.x += xNopeus * kiihtyvyys;
         super.y += yNopeus * kiihtyvyys;
+        paivitaHitbox();
+    }
+    
+    public void paivitaHitbox() {
         hitbox.setLocation(x - r, y - r);
     }
 
@@ -70,7 +74,8 @@ public class Pallo extends Peliolio {
     @Override
     public void piirra(Graphics g) {
         g.setColor(Color.white);
-        g.fillOval(x - r, y - r, 2 * r, 2 * r);
+        //g.fillOval(x - r, y - r, 2 * r, 2 * r);
+        g.fillRect(x - r, y - r, 2 * r, 2 * r);
     }
 
 //    @Override

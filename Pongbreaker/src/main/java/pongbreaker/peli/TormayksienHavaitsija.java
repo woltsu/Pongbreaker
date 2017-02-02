@@ -17,19 +17,24 @@ public class TormayksienHavaitsija {
         this.vastustaja = vastustaja;
     }
 
-    public void tarkistaTormaykset() {
+    public boolean tarkistaTormaykset() { //booleanin palauttaminen helpottaa testejä
         if (pelaaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
             pallo.kaannaXNopeus();
             pallo.setX(pelaaja.getMaila().getX() + pelaaja.getMaila().getLeveys() / 2 + pallo.getR());
+            pallo.paivitaHitbox();
             arvoUudetNopeudetPallolle();
+            return true;
         }
 
         if (vastustaja.getMaila().getHitbox().intersects(pallo.getHitbox())) {
             pallo.kaannaXNopeus();
             pallo.setX(vastustaja.getMaila().getX() - vastustaja.getMaila().getLeveys() / 2 - pallo.getR());
+            pallo.paivitaHitbox();
             arvoUudetNopeudetPallolle();
+            return true;
         }
-
+        
+        return false;
     }
 
     private void arvoUudetNopeudetPallolle() {

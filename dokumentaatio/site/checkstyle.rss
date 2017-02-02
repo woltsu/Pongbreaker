@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 12,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,6 +44,34 @@ under the License.
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.peli.Vastustaja.java">pongbreaker/peli/Vastustaja.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.domain.Peliolio.java">pongbreaker/domain/Peliolio.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#pongbreaker.gui.Piirtoalusta.java">pongbreaker/gui/Piirtoalusta.java</a>
@@ -88,7 +116,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#pongbreaker.domain.Piirrettava.java">pongbreaker/domain/Piirrettava.java</a>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.gui.Nappaimistonkuuntelija.java">pongbreaker/gui/Nappaimistonkuuntelija.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.peli.TormayksienHavaitsija.java">pongbreaker/peli/TormayksienHavaitsija.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +158,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.domain.Maila.java">pongbreaker/domain/Maila.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#pongbreaker.gui.Paivitettava.java">pongbreaker/gui/Paivitettava.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#pongbreaker.peli.Pelaaja.java">pongbreaker/peli/Pelaaja.java</a>
                 </td>
                 <td>
                   0

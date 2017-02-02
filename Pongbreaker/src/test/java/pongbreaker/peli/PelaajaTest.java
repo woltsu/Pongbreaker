@@ -12,15 +12,16 @@ import pongbreaker.domain.Maila;
 
 public class PelaajaTest {
     Pelaaja pelaaja;
+    Maila maila;
 
     @Before
     public void setUp() {
         pelaaja = new Pelaaja(new Maila(100, 100));
+        maila = pelaaja.getMaila();
     }
     
     @Test
     public void eiVoiLiikkuaJosKiihtyvyysOnNolla() {
-        Maila maila = pelaaja.getMaila();
         pelaaja.liiku();
         assertEquals(100, maila.getX());
         assertEquals(100, maila.getY());
@@ -30,7 +31,6 @@ public class PelaajaTest {
     
     @Test
     public void liikkuminenYlosToimiiJaLiikuttaaHitboxia() {
-        Maila maila = pelaaja.getMaila();
         pelaaja.setNopeus(5);
         pelaaja.setKiihtyvyys(1);
         pelaaja.liiku();
@@ -41,7 +41,6 @@ public class PelaajaTest {
     
     @Test
     public void liikkuminenAlasToimiiJaLiikuttaaHitboxia() {
-        Maila maila = pelaaja.getMaila();
         pelaaja.setNopeus(5);
         pelaaja.setKiihtyvyys(-1);
         pelaaja.liiku();

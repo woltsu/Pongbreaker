@@ -11,7 +11,7 @@ import pongbreaker.domain.Peliolio;
 
 public class TormayksienHavaitsijaTest {
 
-     Pallo pallo;
+    Pallo pallo;
     TormayksienHavaitsija havaitsija;
 
     Maila pelaajanMaila;

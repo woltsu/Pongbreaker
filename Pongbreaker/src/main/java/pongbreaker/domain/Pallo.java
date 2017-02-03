@@ -84,6 +84,9 @@ public class Pallo extends Peliolio {
     public void reagoiOsumaan() {
         kaannaXNopeus();
         Random r = new Random();
+        
+        liiku();
+        
         int uusiXNopeus = 2 + r.nextInt(2) + 1;
         int uusiYNopeus = 2 + r.nextInt(2) + 1;
         

@@ -40,7 +40,7 @@ public class Maila extends Peliolio {
 
     @Override
     public void reagoiOsumaan() {
-        
+        //Äänet
     }
 
 }

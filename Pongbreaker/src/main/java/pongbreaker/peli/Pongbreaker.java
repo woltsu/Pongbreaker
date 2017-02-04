@@ -41,12 +41,12 @@ public class Pongbreaker extends Timer implements ActionListener {
         pallo.setYNopeus(2);
         pallo.setXNopeus(4);
         this.vastustaja.setKiihtyvyys(1.4);
-        
+
         this.piirrettavat = new ArrayList<>();
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
-        
+
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
     }
 
@@ -105,7 +105,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (onkoPaalla) {
             tarkistaOsuukoPalloReunoihin();
-            
+
             if (tarkistaOhittaakoPalloPaatyrajan()) {
                 return;
             }
@@ -121,6 +121,13 @@ public class Pongbreaker extends Timer implements ActionListener {
 
         paivitettava.paivita();
         setDelay(22);
+    }
+
+    public void kaynnistaPeli() {
+        pallo.setX(leveys / 2 - 10);
+        pallo.setY(korkeus / 2 - 30);
+        pallo.setKiihtyvyys(1);
+        this.onkoPaalla = true;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {
@@ -150,14 +157,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     public boolean onkoPaalla() {
         return this.onkoPaalla;
     }
-    
-    public void kaynnistaPeli() {
-        pallo.setX(leveys / 2 - 10);
-        pallo.setY(korkeus / 2 - 30);
-        pallo.setKiihtyvyys(1);
-        this.onkoPaalla = true;
-    }
-    
+
     public List<Peliolio> getPiirrettavat() {
         return this.piirrettavat;
     }

@@ -41,12 +41,13 @@ public class Pongbreaker extends Timer implements ActionListener {
         pallo.setYNopeus(2);
         pallo.setXNopeus(4);
         this.vastustaja.setKiihtyvyys(1.4);
+        
         this.piirrettavat = new ArrayList<>();
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
+        
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
-
     }
 
     public void tarkistaOsuukoPalloReunoihin() {

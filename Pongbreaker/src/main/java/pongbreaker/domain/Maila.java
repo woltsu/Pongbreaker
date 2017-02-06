@@ -27,6 +27,11 @@ public class Maila extends Peliolio {
         return korkeus;
     }
     
+    public void setKorkeus(int korkeus) {
+        this.korkeus = korkeus;
+        this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
+    } 
+    
     @Override
     public Rectangle getHitbox() {
         return hitbox;

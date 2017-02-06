@@ -16,6 +16,7 @@ public class Pelaaja {
         this.nopeus = 5;
         this.kiihtyvyys = 0;
         this.liikkuuko = false;
+        //this.maila.setKorkeus(200);
     }
 
     public void liiku() {

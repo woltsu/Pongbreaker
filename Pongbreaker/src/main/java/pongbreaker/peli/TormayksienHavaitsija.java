@@ -1,5 +1,7 @@
 package pongbreaker.peli;
 
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,25 +25,30 @@ public class TormayksienHavaitsija {
                 if (i == j) {
                     continue;
                 }
+                
                 if (pelioliot.get(i).getHitbox().intersects(pelioliot.get(j).getHitbox())) {
 
                     if (pelioliot.get(i).getClass() == Pallo.class) {
                         Pallo pallo = (Pallo) pelioliot.get(i);
-                        if (pelioliot.get(j).getClass() == Laatikko.class) {
+                        
+                        int tulos = pelioliot.get(j).getHitbox().outcode(pallo.getX(), pallo.getY());
 
-                            Laatikko laatikko = (Laatikko) pelioliot.get(j);
-
-                            if (pallo.getY() >= laatikko.getY() + 13 || pallo.getY() <= laatikko.getY() - 13) {
+                            if (tulos == Rectangle2D.OUT_TOP || tulos == Rectangle2D.OUT_BOTTOM) {
                                 pallo.kaannaYNopeus();
+                                pallo.kaannaXNopeus();
+                                pallo.reagoiOsumaan();
+                                pelioliot.get(j).reagoiOsumaan();
                                 continue;
+                                
+                            } else {
+                                pallo.reagoiOsumaan();
+                                pelioliot.get(j).reagoiOsumaan();
+                                continue;
+                                
                             }
-
-                        } else {
-                            pallo.reagoiOsumaan();
-                            pallo.liiku();
-                            continue;
-                        }
+                        
                     }
+                    
                     pelioliot.get(i).reagoiOsumaan();
                     onkoTormayksia = true;
                 }

@@ -137,7 +137,7 @@ public class Pongbreaker extends Timer implements ActionListener {
             vastustaja.liiku();
             tormayksienHavaitsija.tarkistaTormaykset();
             laatikoita -= tormayksienHavaitsija.poistaLaatikot();
-            if (laatikoita < 15) {
+            if (laatikoita < 16) {
                 arvoLaatikot();
             }
             pallo.liiku();

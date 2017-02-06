@@ -23,7 +23,7 @@ public class Vastustaja {
                 maila.setY(maila.getY() + (int) (kiihtyvyys * 5));
 
             } else {
-                maila.setY(maila.getY() + Math.abs(seurattavaPallo.getY() - maila.getY()));
+                maila.setY(maila.getY() + (int)(kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));
 
             }
 
@@ -32,7 +32,7 @@ public class Vastustaja {
                 maila.setY(maila.getY() - (int) (kiihtyvyys * 5));
 
             } else {
-                maila.setY(maila.getY() - Math.abs(seurattavaPallo.getY() - maila.getY()));
+                maila.setY(maila.getY() - (int)(kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));
 
             }
 

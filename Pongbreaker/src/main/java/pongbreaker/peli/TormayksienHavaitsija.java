@@ -26,16 +26,20 @@ public class TormayksienHavaitsija {
                 if (pelioliot.get(i).getHitbox().intersects(pelioliot.get(j).getHitbox())) {
 
                     if (pelioliot.get(i).getClass() == Pallo.class) {
+                        Pallo pallo = (Pallo) pelioliot.get(i);
                         if (pelioliot.get(j).getClass() == Laatikko.class) {
 
-                            Pallo pallo = (Pallo) pelioliot.get(i);
                             Laatikko laatikko = (Laatikko) pelioliot.get(j);
 
-                            if (pallo.getY() > laatikko.getY() + 13 || pallo.getY() < laatikko.getY() - 13) {
+                            if (pallo.getY() >= laatikko.getY() + 13 || pallo.getY() <= laatikko.getY() - 13) {
                                 pallo.kaannaYNopeus();
                                 continue;
                             }
 
+                        } else {
+                            pallo.reagoiOsumaan();
+                            pallo.liiku();
+                            continue;
                         }
                     }
                     pelioliot.get(i).reagoiOsumaan();

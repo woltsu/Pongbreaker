@@ -49,7 +49,7 @@ public class TormayksienHavaitsija {
                         
                     }
                     
-                    pelioliot.get(i).reagoiOsumaan();
+                    //pelioliot.get(i).reagoiOsumaan();
                     onkoTormayksia = true;
                 }
             }

@@ -25,7 +25,7 @@ public class Laatikko extends Peliolio {
         hitpoints = 2;
 
         Random random = new Random();
-        if (random.nextDouble() < 0.1) {
+        if (random.nextDouble() < 0.15) {
             sisaltaakoPowerupin = true;
             hitpoints = 1;
         }

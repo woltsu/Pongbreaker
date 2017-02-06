@@ -45,7 +45,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         pallo.setYNopeus(2);
         pallo.setXNopeus(4);
         pallo.setKiihtyvyys(1.2);
-        this.vastustaja.setKiihtyvyys(0.9);
+        this.vastustaja.setKiihtyvyys(1);
 
         this.piirrettavat = new ArrayList<>();
         this.piirrettavat.add(pallo);

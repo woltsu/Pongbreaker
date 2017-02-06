@@ -48,8 +48,8 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
-        arvoLaatikot();
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
+        arvoLaatikot();
     }
 
     public void tarkistaOsuukoPalloReunoihin() {
@@ -105,11 +105,18 @@ public class Pongbreaker extends Timer implements ActionListener {
 
     public void arvoLaatikot() {
         Random r = new Random();
-        for (int i = 0; i < 5; i++) {
+        int i = 0;
+
+        while (i < 5) {
             int x = 150 + r.nextInt(151);
             int y = 20 + r.nextInt(280);
-            this.piirrettavat.add(new Laatikko(x, y));
+            Laatikko laatikko = new Laatikko(x, y);
+            if (!tormayksienHavaitsija.osuuko(laatikko)) {
+                this.piirrettavat.add(new Laatikko(x, y));
+                i++;
+            }
         }
+
     }
 
     @Override

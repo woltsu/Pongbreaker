@@ -102,9 +102,9 @@ public class Pallo extends Peliolio {
             yNopeus = -1 * uusiYNopeus;
         }
         
-        if (kiihtyvyys < 2.45) {
-            kiihtyvyys += 0.05;
-        }
+//        if (kiihtyvyys < 2.45) {
+//            kiihtyvyys += 0.05;
+//        }
         
     }
 

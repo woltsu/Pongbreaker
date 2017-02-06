@@ -27,6 +27,7 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
             piirrettava.piirra(gfx);
         }
         if (!peli.onkoPaalla()) {
+            gfx.setColor(Color.white);
             gfx.drawString("Press spacebar", 200, 175);
         }
         g.drawImage(img, 0, 0, this);

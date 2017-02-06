@@ -76,8 +76,8 @@ public class Pallo extends Peliolio {
     @Override
     public void piirra(Graphics g) {
         g.setColor(Color.white);
-        //g.fillOval(x - r, y - r, 2 * r, 2 * r);
-        g.fillRect(x - r, y - r, 2 * r, 2 * r);
+        g.fillOval(x - r, y - r, 2 * r, 2 * r);
+        //g.fillRect(x - r, y - r, 2 * r, 2 * r);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Pallo extends Peliolio {
         kaannaXNopeus();
         Random random = new Random();
         
-        liiku();
+        //liiku();
         
         int uusiXNopeus = 2 + random.nextInt(2) + 1;
         int uusiYNopeus = 2 + random.nextInt(2) + 1;

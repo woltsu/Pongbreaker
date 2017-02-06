@@ -27,6 +27,8 @@ public class Pongbreaker extends Timer implements ActionListener {
 
     private List<Peliolio> piirrettavat;
     private TormayksienHavaitsija tormayksienHavaitsija;
+    
+    private int laatikoita;
 
     public Pongbreaker(int leveys, int korkeus) {
         super(100, null);
@@ -42,14 +44,14 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.vastustaja = new Vastustaja(new Maila(this.leveys - 10 - this.paatyrajanLeveys, this.korkeus / 2 - 30), pallo);
         pallo.setYNopeus(2);
         pallo.setXNopeus(4);
-        this.vastustaja.setKiihtyvyys(1.4);
+        this.vastustaja.setKiihtyvyys(1);
 
         this.piirrettavat = new ArrayList<>();
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
-        arvoLaatikot();
+        this.laatikoita = 0;
     }
 
     public void tarkistaOsuukoPalloReunoihin() {
@@ -107,12 +109,13 @@ public class Pongbreaker extends Timer implements ActionListener {
         Random r = new Random();
         int i = 0;
 
-        while (i < 5) {
+        while (i < 15) {
             int x = 150 + r.nextInt(151);
             int y = 20 + r.nextInt(280);
             Laatikko laatikko = new Laatikko(x, y);
             if (!tormayksienHavaitsija.osuuko(laatikko)) {
                 this.piirrettavat.add(new Laatikko(x, y));
+                laatikoita++;
                 i++;
             }
         }
@@ -131,6 +134,10 @@ public class Pongbreaker extends Timer implements ActionListener {
             pelaaja.liiku();
             vastustaja.liiku();
             tormayksienHavaitsija.tarkistaTormaykset();
+            laatikoita -= tormayksienHavaitsija.poistaLaatikot();
+            if (laatikoita == 0) {
+                arvoLaatikot();
+            }
             pallo.liiku();
 
             tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
@@ -142,6 +149,8 @@ public class Pongbreaker extends Timer implements ActionListener {
     }
 
     public void kaynnistaPeli() {
+        tormayksienHavaitsija.poistaKaikkiLaatikot();
+        arvoLaatikot();
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
         pallo.setKiihtyvyys(1);

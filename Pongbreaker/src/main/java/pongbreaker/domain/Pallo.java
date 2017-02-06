@@ -83,12 +83,12 @@ public class Pallo extends Peliolio {
     @Override
     public void reagoiOsumaan() {
         kaannaXNopeus();
-        Random r = new Random();
+        Random random = new Random();
         
         liiku();
         
-        int uusiXNopeus = 2 + r.nextInt(2) + 1;
-        int uusiYNopeus = 2 + r.nextInt(2) + 1;
+        int uusiXNopeus = 2 + random.nextInt(2) + 1;
+        int uusiYNopeus = 2 + random.nextInt(2) + 1;
         
         if (xNopeus > 0) {
             xNopeus = uusiXNopeus;

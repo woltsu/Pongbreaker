@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.swing.Timer;
+import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
 import pongbreaker.domain.Peliolio;
@@ -46,7 +48,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
-
+        arvoLaatikot();
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
     }
 
@@ -99,6 +101,15 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
 
         return false;
+    }
+
+    public void arvoLaatikot() {
+        Random r = new Random();
+        for (int i = 0; i < 5; i++) {
+            int x = 150 + r.nextInt(151);
+            int y = 20 + r.nextInt(280);
+            this.piirrettavat.add(new Laatikko(x, y));
+        }
     }
 
     @Override

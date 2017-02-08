@@ -65,7 +65,7 @@ public class TormayksienHavaitsija {
         for (Peliolio peliolio : pelioliot) {
             if (peliolio.getClass() == Laatikko.class) {
                 Laatikko laatikko = (Laatikko) peliolio;
-                if (laatikko.poistetaanko()) {
+                if (laatikko.getPoistetaanko()) {
                     poistettavat.add(laatikko);
                     poistetut++;
                 }

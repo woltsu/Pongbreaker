@@ -3,6 +3,12 @@ package pongbreaker.peli;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
 
+/**
+ * Luokka kuvaa pelissä olevaa vastustajaa, jonka mailalla on eri ominaisuuksia.
+ * Vastustaja liikkuu yksinkertaisella tekoälyllä.
+ * @author wolli
+ */
+
 public class Vastustaja {
 
     private Maila maila;
@@ -10,11 +16,22 @@ public class Vastustaja {
 
     private double kiihtyvyys;
 
+    /**
+     * Luokan konstruktori.
+     * @param maila Vastustajan maila.
+     * @param seurattavaPallo Pallo, jota vastustaja seuraa.
+     */
+    
     public Vastustaja(Maila maila, Pallo seurattavaPallo) {
         this.maila = maila;
         this.seurattavaPallo = seurattavaPallo;
         this.kiihtyvyys = 1;
     }
+    
+    /**
+     * Liikuttaa Vastustajan mailaa.
+     * Liikuttu matka riippuu seurattavan pallon sijainnista sekä pelaajan kiihtyvyydestä.
+     */
 
     public void liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {

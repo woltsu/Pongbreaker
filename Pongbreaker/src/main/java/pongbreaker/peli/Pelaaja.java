@@ -1,7 +1,10 @@
 package pongbreaker.peli;
 
 import pongbreaker.domain.Maila;
-
+/**
+ * Luokka kuvaa pelaajaa, jonka mailalla on eri ominaisuuksia.
+ * @author wolli
+ */
 public class Pelaaja {
 
     private Maila maila;
@@ -11,6 +14,11 @@ public class Pelaaja {
 
     private boolean liikkuuko;
 
+    /**
+     * Luokan konstruktori.
+     * @param maila Pelaajan maila.
+     */
+    
     public Pelaaja(Maila maila) {
         this.maila = maila;
         this.nopeus = 5;
@@ -18,6 +26,11 @@ public class Pelaaja {
         this.liikkuuko = false;
         //this.maila.setKorkeus(200);
     }
+    
+    /**
+     * Muuttaa luokan mailan ja sen hitboxin koordinaatteja.
+     * Pelaajan nopeus ja kiihtyvyys vaikuttavat liikutun matkan määrään koordinaatistossa.
+     */
 
     public void liiku() {
         maila.setY(maila.getY() + (int) (nopeus * kiihtyvyys));
@@ -40,12 +53,20 @@ public class Pelaaja {
             }
         }
     }
+    
+    /**
+     * Lisää pelaajan kiihtyvyyttä.
+     */
 
     public void lisaaKiihtyvyytta() {
         if (this.kiihtyvyys < 1) {
             this.kiihtyvyys += 1;
         }
     }
+    
+    /**
+     * Vähentää pelaajan kiihtyvyyttä.
+     */
 
     public void vahennaKiihtyvyytta() {
         if (this.kiihtyvyys > -1) {

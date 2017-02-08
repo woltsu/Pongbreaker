@@ -9,14 +9,33 @@ import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Pallo;
 import pongbreaker.domain.Peliolio;
 
+/**
+ * Luokka havaitsee jos peliolioiden hitboxit
+ * osuvat toisiinsa.
+ * @author wolli
+ */
+
 public class TormayksienHavaitsija {
 
     private List<Peliolio> pelioliot;
-
+    
+    /**
+     * Luokan konstruktori.
+     * @param pelioliot Peliolioit, joiden 'törmäyksiä' tulee havaita.
+     */
+    
     public TormayksienHavaitsija(List<Peliolio> pelioliot) {
         this.pelioliot = pelioliot;
     }
-
+    
+    /**
+     * Käy läpi kaikki pelin pelioloit ja tarkistaa osuvatko ne toisiinsa.
+     * Pallo tarkistetaan erikseen, koska pallon uusi suunta riippuu siitä,
+     * mistä suunnasta pallo osuu toiseen peliolioon.
+     * @see pongbreaker.domain.Peliolio#reagoiOsumaan() 
+     * @return true, jos pelissä on havaittu törmäys, false jos ei.
+     */
+    
     public boolean tarkistaTormaykset() { //booleanin palauttaminen helpottaa testejä
         boolean onkoTormayksia = false;
         for (int i = 0; i < pelioliot.size(); i++) {
@@ -57,8 +76,13 @@ public class TormayksienHavaitsija {
 
         return onkoTormayksia;
     }
-
-    public int poistaLaatikot() {
+    
+    /**
+     * Poistaa pelissä olevat laatikot, joihin pallo on osunut.
+     * @return Poistettujen laatikoiden määrä.
+     */
+    
+    public int poistaLaatikotJoihinOsuttu() {
         int poistetut = 0;
         List<Peliolio> poistettavat = new ArrayList<>();
 
@@ -78,7 +102,11 @@ public class TormayksienHavaitsija {
 
         return poistetut;
     }
-
+    
+    /**
+     * Poistaa kaikki pelin laatikot.
+     */
+    
     public void poistaKaikkiLaatikot() {
         List<Peliolio> poistettavat = new ArrayList<>();
 
@@ -93,6 +121,12 @@ public class TormayksienHavaitsija {
             pelioliot.remove(peliolio);
         }
     }
+    
+    /**
+     * Tarkistaa osuuko annettu peliolio johonkin pelissä olevaan toiseen peliolioon.
+     * @param peliolio Peliolio, jota tarkastellaan.
+     * @return true, jos annettu peliolio osuu johonkin toiseen peliolioon, false jos ei.
+     */
 
     public boolean osuuko(Peliolio peliolio) {
 

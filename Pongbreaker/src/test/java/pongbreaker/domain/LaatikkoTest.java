@@ -39,7 +39,6 @@ public class LaatikkoTest {
         } else {
             assertEquals(1, laatikko.getHitpoints());
             laatikko.reagoiOsumaan();
-            assertFalse(laatikko.getPoistetaanko());
             assertEquals(0, laatikko.getHitpoints());
             assertTrue(laatikko.getPoistetaanko());
         }

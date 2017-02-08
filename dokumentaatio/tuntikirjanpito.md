@@ -9,3 +9,4 @@ Päivä | Tunnit | Kuvaus
 30.01.2017 | 4h | Lisättiin KeyListener, pelilogiikkaa sekä hitboxit
 01.02.2017 | 2h | Lisättiin vastustaja sekä pelilogiikkaa
 02.02.2017 | 4h | Testien, pelilogiikan, raporttien ja luokkakaavion tekemistä
+06.02.2017 | 1.5h | pelilogiikan tekemistä

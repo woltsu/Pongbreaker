@@ -141,4 +141,8 @@ public class TormayksienHavaitsija {
         return false;
     }
 
+    public List<Peliolio> getPelioliot() {
+        return pelioliot;
+    }
+
 }

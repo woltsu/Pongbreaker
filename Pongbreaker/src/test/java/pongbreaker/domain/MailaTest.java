@@ -21,4 +21,11 @@ public class MailaTest {
         assertEquals(x - maila.getLeveys() / 2, maila.getHitbox().x);
         assertEquals(y - maila.getKorkeus() / 2, maila.getHitbox().y);
     }
+    
+    @Test
+    public void mailanKorkeudenMuuttaminenMuuttaaMyösHitboxinPaikkaa() {
+        maila.setKorkeus(50);
+        assertEquals(x - maila.getLeveys() / 2, maila.getHitbox().x);
+        assertEquals(y - maila.getKorkeus() / 2, maila.getHitbox().y);
+    }
 }

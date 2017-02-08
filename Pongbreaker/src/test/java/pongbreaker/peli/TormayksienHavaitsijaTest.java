@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
 import pongbreaker.domain.Peliolio;
@@ -64,6 +65,41 @@ public class TormayksienHavaitsijaTest {
         pallo.setX(pallo.getX() - 1);
         pallo.paivitaHitbox();
         assertTrue(havaitsija.tarkistaTormaykset());
+    }
+    
+    @Test
+    public void poistaaLaatikotJoihinOsuttu() {
+        Laatikko laatikko = new Laatikko(0, 0);
+        List<Peliolio> pelioliot = havaitsija.getPelioliot();
+        pelioliot.add(laatikko);
+        havaitsija.poistaLaatikotJoihinOsuttu();
+        assertEquals(4, pelioliot.size());
+        laatikko.setHitpoints(1);
+        laatikko.reagoiOsumaan();
+        havaitsija.poistaLaatikotJoihinOsuttu();
+        assertEquals(3, pelioliot.size());
+    }
+    
+    @Test
+    public void poistaaKaikkiLaatikot() {
+        List<Peliolio> pelioliot = havaitsija.getPelioliot();
+        for (int i = 0; i < 10; i++) {
+            pelioliot.add(new Laatikko(0, 0));
+        }
+        assertEquals(13, pelioliot.size());
+        havaitsija.poistaKaikkiLaatikot();
+        assertEquals(3, pelioliot.size());
+    }
+    
+    @Test
+    public void osuukoToimii() {
+        List<Peliolio> pelioliot = havaitsija.getPelioliot();
+        Laatikko laatikko = new Laatikko(0, 0);
+        pelioliot.add(laatikko);
+        Laatikko toinenLaatikko = new Laatikko(999, 999);
+        assertFalse(havaitsija.osuuko(toinenLaatikko));
+        Laatikko kolmasLaatikko = new Laatikko(0, 0);
+        assertTrue(havaitsija.osuuko(kolmasLaatikko));
     }
 
 }

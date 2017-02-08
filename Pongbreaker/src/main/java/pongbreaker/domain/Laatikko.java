@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Laatikko extends Peliolio {
 
-    int sivunPituus;
+    private int sivunPituus;
 
     private Rectangle hitbox;
     private boolean poistetaanko;
@@ -76,7 +76,6 @@ public class Laatikko extends Peliolio {
     /**
      * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics)
      */
-
     @Override
     public void piirra(Graphics g) {
         if (sisaltaakoPowerupin) {
@@ -108,6 +107,18 @@ public class Laatikko extends Peliolio {
     @Override
     public Rectangle getHitbox() {
         return hitbox;
+    }
+
+    public int getSivunPituus() {
+        return sivunPituus;
+    }
+
+    public int getHitpoints() {
+        return hitpoints;
+    }
+
+    public void setHitpoints(int hitpoints) {
+        this.hitpoints = hitpoints;
     }
 
 }

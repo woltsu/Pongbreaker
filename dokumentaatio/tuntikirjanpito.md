@@ -10,3 +10,4 @@ Päivä | Tunnit | Kuvaus
 01.02.2017 | 2h | Lisättiin vastustaja sekä pelilogiikkaa
 02.02.2017 | 4h | Testien, pelilogiikan, raporttien ja luokkakaavion tekemistä
 06.02.2017 | 1.5h | pelilogiikan tekemistä
+07.02.2017 | 1.5h | pelilogiikan tekemistä

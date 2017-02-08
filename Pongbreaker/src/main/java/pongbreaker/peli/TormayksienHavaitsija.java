@@ -56,11 +56,13 @@ public class TormayksienHavaitsija {
                             pallo.kaannaXNopeus();
                             pallo.reagoiOsumaan();
                             pelioliot.get(j).reagoiOsumaan();
+                            onkoTormayksia = true;
                             continue;
 
                         } else {
                             pallo.reagoiOsumaan();
                             pelioliot.get(j).reagoiOsumaan();
+                            onkoTormayksia = true;
                             continue;
 
                         }

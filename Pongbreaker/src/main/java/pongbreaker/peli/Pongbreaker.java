@@ -14,9 +14,9 @@ import pongbreaker.gui.Paivitettava;
 
 /**
  * Luokka sisältää pelilogiikkaa, joiden mukaan peli toimii oikein.
+ *
  * @author wolli
  */
-
 public class Pongbreaker extends Timer implements ActionListener {
 
     private int leveys;
@@ -34,13 +34,13 @@ public class Pongbreaker extends Timer implements ActionListener {
     private TormayksienHavaitsija tormayksienHavaitsija;
 
     private int laatikoita;
-    
+
     /**
      * Luokan konstruktori.
+     *
      * @param leveys Pelikentän leveys.
      * @param korkeus Pelikentän korkeus.
      */
-
     public Pongbreaker(int leveys, int korkeus) {
         super(100, null);
         addActionListener(this);
@@ -65,11 +65,10 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
         this.laatikoita = 0;
     }
-    
+
     /**
      * Metodi pitää huolen siitä, ettei pallo mene pelikentän ulkopuolelle.
      */
-
     public void tarkistaOsuukoPalloReunoihin() {
         /*Luvut -10 ja -30 tulevat siitä, että näytettävä ikkunan koko ei ole sama kuin alkuperäisesti
         asetettu leveys ja korkeus*/
@@ -93,13 +92,13 @@ public class Pongbreaker extends Timer implements ActionListener {
 
         }
     }
-    
+
     /**
-     * Metodi tarkastaa onko pelin pallo ylittänyt päätyrajan,
-     * jolloin peli loppuu.
+     * Metodi tarkastaa onko pelin pallo ylittänyt päätyrajan, jolloin peli
+     * loppuu.
+     *
      * @return true jos pallo on ylittänyt päätyrajan, false jos ei.
      */
-    
     public boolean tarkistaOhittaakoPalloPaatyrajan() {
         if (pallo.getX() <= paatyrajanLeveys) {
             //System.out.println("Pelaaja 1 hävisi");
@@ -114,13 +113,13 @@ public class Pongbreaker extends Timer implements ActionListener {
 
         return false;
     }
-    
+
     /**
      * Metodi tarkastaa ettei maila poistu pelikentältä.
+     *
      * @param maila Maila, jota tarkastellaan.
      * @return true jos maila on poistunut pelikentältä, false jos ei.
      */
-    
     public boolean tarkistaMeneekoMailaYliRajojen(Maila maila) {
         if (maila.getY() < maila.getKorkeus() / 2) {
             maila.setY(maila.getKorkeus() / 2);
@@ -132,12 +131,11 @@ public class Pongbreaker extends Timer implements ActionListener {
 
         return false;
     }
-    
-    /**
-     * Metodi arpoo tietyllä välillä oleviin 
-     * satunnaisiin koordinaatteihin piirrettäviä laatikko-olioita.
-     */
 
+    /**
+     * Metodi arpoo tietyllä välillä oleviin satunnaisiin koordinaatteihin
+     * piirrettäviä laatikko-olioita.
+     */
     public void arvoLaatikot() {
         Random r = new Random();
 
@@ -155,12 +153,11 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
 
     }
-    
+
     /**
-     * @see ActionListener#actionPerformed(java.awt.event.ActionEvent) 
+     * @see ActionListener#actionPerformed(java.awt.event.ActionEvent)
      * @param e ActionEvent
      */
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (onkoPaalla) {
@@ -186,11 +183,11 @@ public class Pongbreaker extends Timer implements ActionListener {
         paivitettava.paivita();
         setDelay(22);
     }
-    
-    /**
-     * 'Käynnistaa pelin', eli resetoi pallon sijainnin ja kiihtyvyyden, sekä poistaa laatikot kentältä.
-     */
 
+    /**
+     * 'Käynnistaa pelin', eli resetoi pallon sijainnin ja kiihtyvyyden, sekä
+     * poistaa laatikot kentältä.
+     */
     public void kaynnistaPeli() {
         tormayksienHavaitsija.poistaKaikkiLaatikot();
         laatikoita = 0;

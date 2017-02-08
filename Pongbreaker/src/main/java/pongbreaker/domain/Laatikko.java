@@ -5,8 +5,11 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Objects;
 import java.util.Random;
+
 /**
- * Luokka kuvaa pelikentälle ilmestyviä laatikoita, joista osa voi sisältää power-uppeja.
+ * Luokka kuvaa pelikentälle ilmestyviä laatikoita, joista osa voi sisältää
+ * power-uppeja.
+ *
  * @author wolli
  */
 public class Laatikko extends Peliolio {
@@ -19,14 +22,14 @@ public class Laatikko extends Peliolio {
     private int hitpoints;
 
     private boolean sisaltaakoPowerupin;
-    
+
     /**
      * Luokan konstruktori.
+     *
      * @param x laatikon x-arvo koordinaatistossa
      * @param y laatikon y-arvo koordinaatistossa
      * @see pongbreaker.domain.Peliolio#Peliolio(int, int)
      */
-
     public Laatikko(int x, int y) {
         super(x, y);
         sivunPituus = 25;
@@ -45,11 +48,10 @@ public class Laatikko extends Peliolio {
     public boolean getPoistetaanko() {
         return poistetaanko;
     }
-    
+
     /**
-     * @see Object#equals(java.lang.Object) 
+     * @see Object#equals(java.lang.Object)
      */
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -70,8 +72,9 @@ public class Laatikko extends Peliolio {
         }
         return true;
     }
+
     /**
-     * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics) 
+     * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics)
      */
 
     @Override
@@ -87,6 +90,7 @@ public class Laatikko extends Peliolio {
         }
         g.fillRect(x - sivunPituus / 2, y - sivunPituus / 2, sivunPituus, sivunPituus);
     }
+
     /**
      * @see pongbreaker.domain.Peliolio#reagoiOsumaan()
      */
@@ -97,8 +101,9 @@ public class Laatikko extends Peliolio {
             poistetaanko = true;
         }
     }
+
     /**
-     * @see pongbreaker.domain.Peliolio#getHitbox() 
+     * @see pongbreaker.domain.Peliolio#getHitbox()
      */
     @Override
     public Rectangle getHitbox() {

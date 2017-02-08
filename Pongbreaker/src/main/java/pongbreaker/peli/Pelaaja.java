@@ -1,8 +1,10 @@
 package pongbreaker.peli;
 
 import pongbreaker.domain.Maila;
+
 /**
  * Luokka kuvaa pelaajaa, jonka mailalla on eri ominaisuuksia.
+ *
  * @author wolli
  */
 public class Pelaaja {
@@ -16,9 +18,9 @@ public class Pelaaja {
 
     /**
      * Luokan konstruktori.
+     *
      * @param maila Pelaajan maila.
      */
-    
     public Pelaaja(Maila maila) {
         this.maila = maila;
         this.nopeus = 5;
@@ -26,12 +28,11 @@ public class Pelaaja {
         this.liikkuuko = false;
         //this.maila.setKorkeus(200);
     }
-    
-    /**
-     * Muuttaa luokan mailan ja sen hitboxin koordinaatteja.
-     * Pelaajan nopeus ja kiihtyvyys vaikuttavat liikutun matkan määrään koordinaatistossa.
-     */
 
+    /**
+     * Muuttaa luokan mailan ja sen hitboxin koordinaatteja. Pelaajan nopeus ja
+     * kiihtyvyys vaikuttavat liikutun matkan määrään koordinaatistossa.
+     */
     public void liiku() {
         maila.setY(maila.getY() + (int) (nopeus * kiihtyvyys));
         maila.getHitbox().setLocation(maila.getX() - maila.getLeveys() / 2, maila.getY() - maila.getKorkeus() / 2);
@@ -53,21 +54,19 @@ public class Pelaaja {
             }
         }
     }
-    
+
     /**
      * Lisää pelaajan kiihtyvyyttä.
      */
-
     public void lisaaKiihtyvyytta() {
         if (this.kiihtyvyys < 1) {
             this.kiihtyvyys += 1;
         }
     }
-    
+
     /**
      * Vähentää pelaajan kiihtyvyyttä.
      */
-
     public void vahennaKiihtyvyytta() {
         if (this.kiihtyvyys > -1) {
             this.kiihtyvyys -= 1;
@@ -77,19 +76,19 @@ public class Pelaaja {
     public void setLiikkuuko(boolean liikkuuko) {
         this.liikkuuko = liikkuuko;
     }
-    
+
     public double getNopeus() {
         return this.nopeus;
     }
-    
+
     public double getKiihtyvyys() {
         return this.kiihtyvyys;
     }
-    
+
     public void setKiihtyvyys(double kiihtyvyys) {
         this.kiihtyvyys = kiihtyvyys;
     }
-    
+
     public void setNopeus(double nopeus) {
         this.nopeus = nopeus;
     }

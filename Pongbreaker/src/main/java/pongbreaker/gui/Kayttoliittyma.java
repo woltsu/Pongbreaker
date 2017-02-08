@@ -8,29 +8,29 @@ import pongbreaker.peli.Pongbreaker;
 
 /**
  * Luokka avaa ikkunan, jossa peliä pelataan.
+ *
  * @author wolli
  */
-
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private Piirtoalusta piirtoalusta;
     private Pongbreaker peli;
-    
+
     /**
      * Luokan konstruktori.
+     *
      * @param peli Pongbreaker-olio, joka siirretään eteenpäin muille luokille.
      */
-    
     public Kayttoliittyma(Pongbreaker peli) {
         this.peli = peli;
     }
-    
+
     /**
      * Avaa ikkunan, jossa peliä pelataan.
-     * @see Runnable#run() 
+     *
+     * @see Runnable#run()
      */
-
     @Override
     public void run() {
         frame = new JFrame("Pongbreaker");
@@ -45,16 +45,16 @@ public class Kayttoliittyma implements Runnable {
 
         frame.setVisible(true);
     }
-    
+
     /**
      * Lisää komponentit käyttöliittymään.
-     * @param container sisältää komponentit. 
+     *
+     * @param container sisältää komponentit.
      */
-
     private void luoKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);
         container.add(piirtoalusta);
-        
+
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli);
         frame.addKeyListener(kuuntelija);
     }

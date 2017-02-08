@@ -4,16 +4,29 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import pongbreaker.peli.Pelaaja;
 import pongbreaker.peli.Pongbreaker;
-
+/**
+ * Luokka havaitsee kun käyttäjä painaa tiettyjä näppäimiä.
+ * @author wolli
+ */
 public class Nappaimistonkuuntelija implements KeyListener {
 
     private Pongbreaker peli;
     private Pelaaja pelaaja;
     
+    /**
+     * Luokan konstruktori.
+     * @param peli Pongbreaker-olio. Luokka tarvitsee tätä reagoidessaan käyttäjän komentoihin.
+     */
+    
     public Nappaimistonkuuntelija(Pongbreaker peli) {
         this.peli = peli;
         this.pelaaja = peli.getPelaaja();
     }
+    
+    /**
+     * @see KeyListener#keyPressed(java.awt.event.KeyEvent) 
+     * @param e Painettu näppäin.
+     */
 
     @Override
     public void keyPressed(KeyEvent e) {
@@ -31,6 +44,11 @@ public class Nappaimistonkuuntelija implements KeyListener {
             }
         }
     }
+    
+    /**
+     * @see KeyListener#keyReleased(java.awt.event.KeyEvent) 
+     * @param e Näppäin, joka päästettiin irti.
+     */
 
     @Override
     public void keyReleased(KeyEvent e) {
@@ -42,7 +60,12 @@ public class Nappaimistonkuuntelija implements KeyListener {
             
         }
     }
-
+    
+    /**
+     * @see KeyListener#keyTyped(java.awt.event.KeyEvent) 
+     * @param e Painettu näppäin.
+     */
+    
     @Override
     public void keyTyped(KeyEvent e) {
     }

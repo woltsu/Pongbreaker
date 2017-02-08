@@ -6,15 +6,30 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import pongbreaker.peli.Pongbreaker;
 
+/**
+ * Luokka avaa ikkunan, jossa peliä pelataan.
+ * @author wolli
+ */
+
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private Piirtoalusta piirtoalusta;
     private Pongbreaker peli;
-
+    
+    /**
+     * Luokan konstruktori.
+     * @param peli Pongbreaker-olio, joka siirretään eteenpäin muille luokille.
+     */
+    
     public Kayttoliittyma(Pongbreaker peli) {
         this.peli = peli;
     }
+    
+    /**
+     * Avaa ikkunan, jossa peliä pelataan.
+     * @see Runnable#run() 
+     */
 
     @Override
     public void run() {
@@ -30,6 +45,11 @@ public class Kayttoliittyma implements Runnable {
 
         frame.setVisible(true);
     }
+    
+    /**
+     * Lisää komponentit käyttöliittymään.
+     * @param container sisältää komponentit. 
+     */
 
     private void luoKomponentit(Container container) {
         piirtoalusta = new Piirtoalusta(peli);

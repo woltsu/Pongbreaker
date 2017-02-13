@@ -2,6 +2,7 @@ package pongbreaker.peli;
 
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+import pongbreaker.domain.PowerUp;
 
 /**
  * Luokka kuvaa pelissä olevaa vastustajaa, jonka mailalla on eri ominaisuuksia.
@@ -15,6 +16,7 @@ public class Vastustaja {
     private Pallo seurattavaPallo;
 
     private double kiihtyvyys;
+    private double nopeus;
 
     /**
      * Luokan konstruktori.
@@ -26,6 +28,7 @@ public class Vastustaja {
         this.maila = maila;
         this.seurattavaPallo = seurattavaPallo;
         this.kiihtyvyys = 1;
+        this.nopeus = 5;
     }
 
     /**
@@ -35,8 +38,8 @@ public class Vastustaja {
     public void liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {
 
-            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 5) {
-                maila.setY(maila.getY() + (int) (kiihtyvyys * 5));
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > nopeus) {
+                maila.setY(maila.getY() + (int) (kiihtyvyys * nopeus));
 
             } else {
                 maila.setY(maila.getY() + (int) (kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));
@@ -44,8 +47,8 @@ public class Vastustaja {
             }
 
         } else if (maila.getY() > seurattavaPallo.getY()) {
-            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > 5) {
-                maila.setY(maila.getY() - (int) (kiihtyvyys * 5));
+            if (Math.abs(seurattavaPallo.getY() - maila.getY()) > nopeus) {
+                maila.setY(maila.getY() - (int) (kiihtyvyys * nopeus));
 
             } else {
                 maila.setY(maila.getY() - (int) (kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));
@@ -55,6 +58,21 @@ public class Vastustaja {
         }
 
         maila.getHitbox().setLocation(maila.getX() - maila.getLeveys() / 2, maila.getY() - maila.getKorkeus() / 2);
+    }
+
+    public void reagoiPowerUpiin(PowerUp p) {
+        if (p == PowerUp.MAILA_KASVAA) {
+            maila.setKorkeus(maila.getKorkeus() + 20);
+        } else if (p == PowerUp.MAILA_NOPEUTUU) {
+            nopeus += 0.5;
+        } else if (p == PowerUp.RESETOI_POWERUPIT) {
+            resetoiPowerupit();
+        }
+    }
+
+    public void resetoiPowerupit() {
+        this.nopeus = 5;
+        this.maila.setKorkeus(45);
     }
 
     public Maila getMaila() {

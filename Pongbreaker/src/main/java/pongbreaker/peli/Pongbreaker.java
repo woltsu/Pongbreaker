@@ -10,6 +10,7 @@ import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
 import pongbreaker.domain.Peliolio;
+import pongbreaker.domain.PowerUp;
 import pongbreaker.gui.Paivitettava;
 
 /**
@@ -94,11 +95,31 @@ public class Pongbreaker extends Timer implements ActionListener {
         laatikoita = 0;
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
-        pallo.setKiihtyvyys(1);
+        pallo.setKiihtyvyys(0.7);
         pallo.setXNopeus(3);
-        pelaaja.getMaila().setKorkeus(45);
-        vastustaja.getMaila().setKorkeus(45);
+        pelaaja.resetoiPowerupit();
+        vastustaja.resetoiPowerupit();
+        pallo.setTuhoutumaton(false);
         this.onkoPaalla = true;
+    }
+
+    public void tarkistaPowerupit(List<Peliolio> laatikot) {
+        for (Peliolio p : laatikot) {
+            Laatikko laatikko = (Laatikko) p;
+
+            if (laatikko.sisaltaakoPowerupin()) {
+                PowerUp pu = laatikko.getPowerUp();
+                if (pu == PowerUp.TUHOUTUMATON_PALLO) {
+                    pallo.setTuhoutumaton(true);
+                } else {
+                    if (pelaaja.getMaila().getOnkoOsunutViimeksi()) {
+                        pelaaja.reagoiPowerUpiin(laatikko.getPowerUp());
+                    } else {
+                        vastustaja.reagoiPowerUpiin(laatikko.getPowerUp());
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -116,7 +137,7 @@ public class Pongbreaker extends Timer implements ActionListener {
             pelaaja.liiku();
             vastustaja.liiku();
             tormayksienHavaitsija.tarkistaTormaykset();
-            
+
             if (pelaaja.getMaila().getOnkoOsunutViimeksi() && vastustaja.getMaila().getOnkoOsunutViimeksi()) {
                 if (kumpiOsuiViimeksi.equals("Pelaaja")) {
                     pelaaja.getMaila().setOnkoOsunutViimeksi(false);
@@ -126,11 +147,11 @@ public class Pongbreaker extends Timer implements ActionListener {
                     kumpiOsuiViimeksi = "Pelaaja";
                 }
             }
-            
+
             List<Peliolio> poistetutLaatikot = tormayksienHavaitsija.poistaLaatikotJoihinOsuttu();
             tarkistaPowerupit(poistetutLaatikot);
             laatikoita -= poistetutLaatikot.size();
-            
+
             if (laatikoita < 12) {
                 arvoLaatikot();
             }
@@ -140,24 +161,6 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
         paivitettava.paivita();
         setDelay(22);
-    }
-    
-    public void tarkistaPowerupit(List<Peliolio> laatikot) {
-        for (Peliolio p : laatikot) {
-            Laatikko laatikko = (Laatikko) p;
-            
-            if (laatikko.sisaltaakoPowerupin()) {
-                
-                if (pelaaja.getMaila().getOnkoOsunutViimeksi()) {
-                    pelaaja.getMaila().setKorkeus(100);
-                    vastustaja.getMaila().setKorkeus(45);
-                } else {
-                    vastustaja.getMaila().setKorkeus(100);
-                    pelaaja.getMaila().setKorkeus(45);
-                }
-                
-            }
-        }
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

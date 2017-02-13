@@ -52,15 +52,30 @@ public class TormayksienHavaitsija {
                         int tulos = pelioliot.get(j).getHitbox().outcode(pallo.getX(), pallo.getY());
 
                         if (tulos == Rectangle2D.OUT_TOP || tulos == Rectangle2D.OUT_BOTTOM) {
-                            pallo.kaannaYNopeus();
-                            pallo.kaannaXNopeus();
-                            pallo.reagoiOsumaan();
+                            if (pallo.getTuhoutumaton()) {
+                                if (pelioliot.get(j).getClass() != Laatikko.class) {
+                                    pallo.kaannaYNopeus();
+                                    pallo.kaannaXNopeus();
+                                    pallo.reagoiOsumaan();
+                                }
+                            } else {
+                                pallo.kaannaYNopeus();
+                                pallo.kaannaXNopeus();
+                                pallo.reagoiOsumaan();
+                            }
+
                             pelioliot.get(j).reagoiOsumaan();
                             onkoTormayksia = true;
                             continue;
 
                         } else {
-                            pallo.reagoiOsumaan();
+                            if (pallo.getTuhoutumaton()) {
+                                if (pelioliot.get(j).getClass() != Laatikko.class) {
+                                    pallo.reagoiOsumaan();
+                                }
+                            } else {
+                                pallo.reagoiOsumaan();
+                            }
                             pelioliot.get(j).reagoiOsumaan();
                             onkoTormayksia = true;
                             continue;

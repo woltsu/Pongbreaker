@@ -17,6 +17,7 @@ public class Pallo extends Peliolio {
     private int yNopeus;
     private double kiihtyvyys;
     private Rectangle hitbox;
+    private boolean tuhoutumaton;
 
     /**
      * Luokan konstruktori.
@@ -33,6 +34,7 @@ public class Pallo extends Peliolio {
         yNopeus = 3;
         kiihtyvyys = 1;
         this.hitbox = new Rectangle(x - r, y - r, 2 * r, 2 * r);
+        tuhoutumaton = false;
     }
 
     /**
@@ -96,6 +98,14 @@ public class Pallo extends Peliolio {
         return r;
     }
 
+    public boolean getTuhoutumaton() {
+        return tuhoutumaton;
+    }
+
+    public void setTuhoutumaton(boolean b) {
+        tuhoutumaton = b;
+    }
+
     /**
      * @see pongbreaker.domain.Peliolio#getHitbox()
      */
@@ -109,7 +119,11 @@ public class Pallo extends Peliolio {
      */
     @Override
     public void piirra(Graphics g) {
-        g.setColor(Color.white);
+        if (tuhoutumaton) {
+            g.setColor(Color.red);
+        } else {
+            g.setColor(Color.white);
+        }
         g.fillOval(x - r, y - r, 2 * r, 2 * r);
         //g.fillRect(x - r, y - r, 2 * r, 2 * r);
     }

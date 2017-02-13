@@ -22,6 +22,7 @@ public class Laatikko extends Peliolio {
     private int hitpoints;
 
     private boolean sisaltaakoPowerupin;
+    private PowerUp powerUp;
 
     /**
      * Luokan konstruktori.
@@ -38,9 +39,19 @@ public class Laatikko extends Peliolio {
         hitpoints = 2;
 
         Random random = new Random();
-        if (random.nextDouble() < 0.15) {
+        if (random.nextDouble() < 0.35) {
             sisaltaakoPowerupin = true;
             hitpoints = 1;
+
+            double luku = random.nextDouble();
+            if (luku < 0.5) {
+                this.powerUp = PowerUp.MAILA_KASVAA;
+            } else if (luku < 0.95) {
+                this.powerUp = PowerUp.MAILA_NOPEUTUU;
+            } else if (luku < 1) {
+                this.powerUp = PowerUp.TUHOUTUMATON_PALLO;
+            }
+
         }
 
     }
@@ -51,6 +62,10 @@ public class Laatikko extends Peliolio {
 
     public boolean sisaltaakoPowerupin() {
         return sisaltaakoPowerupin;
+    }
+
+    public PowerUp getPowerUp() {
+        return powerUp;
     }
 
     /**
@@ -83,7 +98,15 @@ public class Laatikko extends Peliolio {
     @Override
     public void piirra(Graphics g) {
         if (sisaltaakoPowerupin) {
-            g.setColor(Color.red);
+            
+            if (powerUp == PowerUp.MAILA_KASVAA) {
+                g.setColor(Color.MAGENTA);
+            } else if (powerUp == PowerUp.MAILA_NOPEUTUU) {
+                g.setColor(Color.yellow);
+            } else if (powerUp == PowerUp.TUHOUTUMATON_PALLO) {
+                g.setColor(Color.red);
+            }
+            
         } else {
             if (hitpoints == 2) {
                 g.setColor(Color.darkGray);

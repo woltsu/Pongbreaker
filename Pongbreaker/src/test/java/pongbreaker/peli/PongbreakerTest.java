@@ -43,7 +43,7 @@ public class PongbreakerTest {
         
         assertEquals(240, pallo.getX());
         assertEquals(120, pallo.getY());
-        assertEquals(1, pallo.getKiihtyvyys(), 0);
+        assertEquals(0.7, pallo.getKiihtyvyys(), 0);
         assertTrue(peli.onkoPaalla());
     }
 

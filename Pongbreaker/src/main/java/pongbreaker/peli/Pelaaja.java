@@ -1,6 +1,7 @@
 package pongbreaker.peli;
 
 import pongbreaker.domain.Maila;
+import pongbreaker.domain.PowerUp;
 
 /**
  * Luokka kuvaa pelaajaa, jonka mailalla on eri ominaisuuksia.
@@ -71,6 +72,21 @@ public class Pelaaja {
         if (this.kiihtyvyys > -1) {
             this.kiihtyvyys -= 1;
         }
+    }
+    
+    public void reagoiPowerUpiin(PowerUp p) {
+        if (p == PowerUp.MAILA_KASVAA) {
+            maila.setKorkeus(maila.getKorkeus() + 20);
+        } else if (p == PowerUp.MAILA_NOPEUTUU) {
+            this.nopeus += 1;
+        } else if (p == PowerUp.RESETOI_POWERUPIT) {
+            resetoiPowerupit();
+        }
+    }
+    
+    public void resetoiPowerupit() {
+        this.nopeus = 5;
+        this.maila.setKorkeus(45);
     }
 
     public void setLiikkuuko(boolean liikkuuko) {

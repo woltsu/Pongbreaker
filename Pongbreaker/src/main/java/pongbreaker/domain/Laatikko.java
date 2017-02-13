@@ -39,16 +39,18 @@ public class Laatikko extends Peliolio {
         hitpoints = 2;
 
         Random random = new Random();
-        if (random.nextDouble() < 0.35) {
+        if (random.nextDouble() < 0.4) {
             sisaltaakoPowerupin = true;
             hitpoints = 1;
 
             double luku = random.nextDouble();
-            if (luku < 0.5) {
+            if (luku < 0.45) {
                 this.powerUp = PowerUp.MAILA_KASVAA;
-            } else if (luku < 0.95) {
+            } else if (luku < 0.85) {
                 this.powerUp = PowerUp.MAILA_NOPEUTUU;
-            } else if (luku < 1) {
+            } else if (luku < 0.95) {
+                this.powerUp = PowerUp.RESETOI_POWERUPIT;
+            } else {
                 this.powerUp = PowerUp.TUHOUTUMATON_PALLO;
             }
 
@@ -98,20 +100,22 @@ public class Laatikko extends Peliolio {
     @Override
     public void piirra(Graphics g) {
         if (sisaltaakoPowerupin) {
-            
+
             if (powerUp == PowerUp.MAILA_KASVAA) {
                 g.setColor(Color.MAGENTA);
             } else if (powerUp == PowerUp.MAILA_NOPEUTUU) {
                 g.setColor(Color.yellow);
             } else if (powerUp == PowerUp.TUHOUTUMATON_PALLO) {
                 g.setColor(Color.red);
+            } else if (powerUp == PowerUp.RESETOI_POWERUPIT) {
+                g.setColor(Color.white);
             }
-            
+
         } else {
             if (hitpoints == 2) {
                 g.setColor(Color.darkGray);
             } else {
-                g.setColor(Color.lightGray);
+                g.setColor(Color.gray);
             }
         }
         g.fillRect(x - sivunPituus / 2, y - sivunPituus / 2, sivunPituus, sivunPituus);

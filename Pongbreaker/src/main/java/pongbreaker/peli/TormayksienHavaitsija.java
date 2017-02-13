@@ -83,7 +83,7 @@ public class TormayksienHavaitsija {
      *
      * @return Poistettujen laatikoiden määrä.
      */
-    public int poistaLaatikotJoihinOsuttu() {
+    public List<Peliolio> poistaLaatikotJoihinOsuttu() {
         int poistetut = 0;
         List<Peliolio> poistettavat = new ArrayList<>();
 
@@ -101,7 +101,7 @@ public class TormayksienHavaitsija {
             pelioliot.remove(peliolio);
         }
 
-        return poistetut;
+        return poistettavat;
     }
 
     /**

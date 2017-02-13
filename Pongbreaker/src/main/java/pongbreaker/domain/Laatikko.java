@@ -49,6 +49,10 @@ public class Laatikko extends Peliolio {
         return poistetaanko;
     }
 
+    public boolean sisaltaakoPowerupin() {
+        return sisaltaakoPowerupin;
+    }
+
     /**
      * @see Object#equals(java.lang.Object)
      */

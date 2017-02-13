@@ -39,7 +39,7 @@ public class Laatikko extends Peliolio {
         hitpoints = 2;
 
         Random random = new Random();
-        if (random.nextDouble() < 0.4) {
+        if (random.nextDouble() < 0.6) {
             sisaltaakoPowerupin = true;
             hitpoints = 1;
 
@@ -48,7 +48,7 @@ public class Laatikko extends Peliolio {
                 this.powerUp = PowerUp.MAILA_KASVAA;
             } else if (luku < 0.85) {
                 this.powerUp = PowerUp.MAILA_NOPEUTUU;
-            } else if (luku < 0.95) {
+            } else if (luku < 0.92) {
                 this.powerUp = PowerUp.RESETOI_POWERUPIT;
             } else {
                 this.powerUp = PowerUp.TUHOUTUMATON_PALLO;

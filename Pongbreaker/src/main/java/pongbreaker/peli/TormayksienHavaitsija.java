@@ -58,6 +58,7 @@ public class TormayksienHavaitsija {
                                     pallo.kaannaXNopeus();
                                     pallo.reagoiOsumaan();
                                 }
+                                pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.02);
                             } else {
                                 pallo.kaannaYNopeus();
                                 pallo.kaannaXNopeus();

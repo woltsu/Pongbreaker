@@ -33,6 +33,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     private RajojenTarkkailija rajojenTarkkailija;
     private int laatikoita;
     private String kumpiOsuiViimeksi;
+    private double laatikkoTodnak;
 
     /**
      * Luokan konstruktori.
@@ -46,14 +47,12 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.paatyrajanLeveys = 30;
-
         alustaPiirrettavat();
-
         this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
         this.rajojenTarkkailija = new RajojenTarkkailija(leveys, korkeus, 30);
-
         this.laatikoita = 0;
         this.kumpiOsuiViimeksi = "Vastustaja";
+        this.laatikkoTodnak = 0.01;
     }
 
     private void alustaPiirrettavat() {
@@ -72,12 +71,12 @@ public class Pongbreaker extends Timer implements ActionListener {
      */
     public void arvoLaatikot() {
         Random r = new Random();
-        if (r.nextDouble() < 0.01) {
+        if (r.nextDouble() < laatikkoTodnak) { //0.01
             while (true) {
                 int x = 150 + r.nextInt(151);
-                int y = 20 + r.nextInt(280);
+                int y = 20 + r.nextInt(281);
                 Laatikko laatikko = new Laatikko(x, y);
-                if (!tormayksienHavaitsija.osuuko(laatikko)) {
+                if (!tormayksienHavaitsija.osuuko(laatikko) && x % 25 == 0 && y % 25 == 0) {
                     this.piirrettavat.add(new Laatikko(x, y));
                     laatikoita++;
                     break;
@@ -95,22 +94,24 @@ public class Pongbreaker extends Timer implements ActionListener {
         laatikoita = 0;
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
-        pallo.setKiihtyvyys(0.7);
+        pallo.setKiihtyvyys(0.7); //0.7
         pallo.setXNopeus(3);
+        pallo.setR(6);
         pelaaja.resetoiPowerupit();
         vastustaja.resetoiPowerupit();
         pallo.setTuhoutumaton(false);
+        laatikkoTodnak = 0.01;
         this.onkoPaalla = true;
     }
 
     public void tarkistaPowerupit(List<Peliolio> laatikot) {
         for (Peliolio p : laatikot) {
             Laatikko laatikko = (Laatikko) p;
-
             if (laatikko.sisaltaakoPowerupin()) {
                 PowerUp pu = laatikko.getPowerUp();
                 if (pu == PowerUp.TUHOUTUMATON_PALLO) {
                     pallo.setTuhoutumaton(true);
+                    laatikkoTodnak = 0.4;
                 } else {
                     if (pelaaja.getMaila().getOnkoOsunutViimeksi()) {
                         pelaaja.reagoiPowerUpiin(laatikko.getPowerUp());
@@ -152,7 +153,7 @@ public class Pongbreaker extends Timer implements ActionListener {
             tarkistaPowerupit(poistetutLaatikot);
             laatikoita -= poistetutLaatikot.size();
 
-            if (laatikoita < 12) {
+            if (laatikoita < 73) { //80
                 arvoLaatikot();
             }
             pallo.liiku();

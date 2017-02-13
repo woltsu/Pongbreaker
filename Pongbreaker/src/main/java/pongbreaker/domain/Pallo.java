@@ -98,12 +98,22 @@ public class Pallo extends Peliolio {
         return r;
     }
 
+    public void setR(int r) {
+        this.r = r;
+        this.hitbox = new Rectangle(x - r, y - r, 2 * r, 2 * r);
+    }
+
     public boolean getTuhoutumaton() {
         return tuhoutumaton;
     }
 
     public void setTuhoutumaton(boolean b) {
         tuhoutumaton = b;
+        if (b) {
+            if (r <= 20) {
+                setR(r + 5);
+            }
+        }
     }
 
     /**
@@ -138,8 +148,8 @@ public class Pallo extends Peliolio {
 
         liiku();
 
-        int uusiXNopeus = 2 + random.nextInt(2) + 1;
-        int uusiYNopeus = 2 + random.nextInt(2) + 1;
+        int uusiXNopeus = 2 + random.nextInt(3);
+        int uusiYNopeus = 2 + random.nextInt(3);
 
         if (xNopeus > 0) {
             xNopeus = uusiXNopeus;
@@ -153,7 +163,7 @@ public class Pallo extends Peliolio {
             yNopeus = -1 * uusiYNopeus;
         }
 
-        if (kiihtyvyys < 2.45) {
+        if (kiihtyvyys < 4) { //2.45
             kiihtyvyys += 0.02;
         }
 

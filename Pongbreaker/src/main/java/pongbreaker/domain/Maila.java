@@ -16,6 +16,7 @@ public class Maila extends Peliolio {
     private int korkeus;
 
     private Rectangle hitbox;
+    private boolean onkoOsunutViimeksi;
 
     /**
      * Luokan konstruktori.
@@ -29,6 +30,7 @@ public class Maila extends Peliolio {
         this.leveys = 10;
         this.korkeus = 45;
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
+        this.onkoOsunutViimeksi = false;
     }
 
     public int getLeveys() {
@@ -38,10 +40,18 @@ public class Maila extends Peliolio {
     public int getKorkeus() {
         return korkeus;
     }
-
+    
     public void setKorkeus(int korkeus) {
         this.korkeus = korkeus;
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
+    }
+    
+    public boolean getOnkoOsunutViimeksi() {
+        return onkoOsunutViimeksi;
+    }
+    
+    public void setOnkoOsunutViimeksi(boolean b) {
+        onkoOsunutViimeksi = b;
     }
 
     /**
@@ -66,6 +76,7 @@ public class Maila extends Peliolio {
      */
     @Override
     public void reagoiOsumaan() {
+        onkoOsunutViimeksi = true;
         //Äänet
     }
 

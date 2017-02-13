@@ -31,6 +31,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     private TormayksienHavaitsija tormayksienHavaitsija;
     private RajojenTarkkailija rajojenTarkkailija;
     private int laatikoita;
+    private String kumpiOsuiViimeksi;
 
     /**
      * Luokan konstruktori.
@@ -51,6 +52,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.rajojenTarkkailija = new RajojenTarkkailija(leveys, korkeus, 30);
 
         this.laatikoita = 0;
+        this.kumpiOsuiViimeksi = "Vastustaja";
     }
 
     private void alustaPiirrettavat() {
@@ -93,6 +95,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
         pallo.setKiihtyvyys(1);
+        pallo.setXNopeus(3);
         this.onkoPaalla = true;
     }
 
@@ -111,6 +114,17 @@ public class Pongbreaker extends Timer implements ActionListener {
             pelaaja.liiku();
             vastustaja.liiku();
             tormayksienHavaitsija.tarkistaTormaykset();
+            
+            if (pelaaja.getMaila().getOnkoOsunutViimeksi() && vastustaja.getMaila().getOnkoOsunutViimeksi()) {
+                if (kumpiOsuiViimeksi.equals("Pelaaja")) {
+                    pelaaja.getMaila().setOnkoOsunutViimeksi(false);
+                    kumpiOsuiViimeksi = "Vastustaja";
+                } else {
+                    vastustaja.getMaila().setOnkoOsunutViimeksi(false);
+                    kumpiOsuiViimeksi = "Pelaaja";
+                }
+            }
+
             laatikoita -= tormayksienHavaitsija.poistaLaatikotJoihinOsuttu();
             if (laatikoita < 12) {
                 arvoLaatikot();

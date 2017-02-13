@@ -44,7 +44,16 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.leveys = leveys;
         this.korkeus = korkeus;
         this.paatyrajanLeveys = 30;
-        this.onkoPaalla = false;
+
+        alustaPiirrettavat();
+
+        this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
+        this.rajojenTarkkailija = new RajojenTarkkailija(leveys, korkeus, 30);
+
+        this.laatikoita = 0;
+    }
+
+    private void alustaPiirrettavat() {
         this.pallo = new Pallo(6, this.leveys / 2 - 10, this.korkeus / 2 - 30);
         this.pelaaja = new Pelaaja(new Maila(this.paatyrajanLeveys, this.korkeus / 2 - 30));
         this.vastustaja = new Vastustaja(new Maila(this.leveys - 10 - this.paatyrajanLeveys, this.korkeus / 2 - 30), pallo);
@@ -52,9 +61,6 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.piirrettavat.add(pallo);
         this.piirrettavat.add(this.pelaaja.getMaila());
         this.piirrettavat.add(this.vastustaja.getMaila());
-        this.tormayksienHavaitsija = new TormayksienHavaitsija(this.piirrettavat);
-        this.rajojenTarkkailija = new RajojenTarkkailija(leveys, korkeus, paatyrajanLeveys);
-        this.laatikoita = 0;
     }
 
     /**

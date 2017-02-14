@@ -130,7 +130,19 @@ public class Pallo extends Peliolio {
     @Override
     public void piirra(Graphics g) {
         if (tuhoutumaton) {
-            g.setColor(Color.red);
+            Random random = new Random();
+            double luku = random.nextDouble();
+            if (luku < 0.2) {
+                g.setColor(Color.red);
+            } else if (luku < 0.4) {
+                g.setColor(Color.blue);
+            } else if (luku < 0.6) {
+                g.setColor(Color.green);
+            } else if (luku < 0.8) {
+                g.setColor(Color.pink);
+            } else {
+                g.setColor(Color.orange);
+            }
         } else {
             g.setColor(Color.white);
         }
@@ -148,8 +160,8 @@ public class Pallo extends Peliolio {
 
         liiku();
 
-        int uusiXNopeus = 2 + random.nextInt(3);
-        int uusiYNopeus = 2 + random.nextInt(3);
+        int uusiXNopeus = 2 + random.nextInt(1);
+        int uusiYNopeus = 2 + random.nextInt(1);
 
         if (xNopeus > 0) {
             xNopeus = uusiXNopeus;

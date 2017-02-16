@@ -34,7 +34,6 @@ public class Pongbreaker extends Timer implements ActionListener {
     private int laatikoita;
     private String kumpiOsuiViimeksi;
     private double laatikkoTodnak;
-    private int aika;
 
     /**
      * Luokan konstruktori.
@@ -103,7 +102,6 @@ public class Pongbreaker extends Timer implements ActionListener {
         pallo.setTuhoutumaton(false);
         laatikkoTodnak = 0.01;
         this.onkoPaalla = true;
-        aika = 0;
     }
 
     public void tarkistaPowerupit(List<Peliolio> laatikot) {
@@ -131,9 +129,6 @@ public class Pongbreaker extends Timer implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (aika % 1000 == 0) {
-            System.out.println(aika / 1000);
-        }
         if (onkoPaalla) {
             rajojenTarkkailija.tarkistaOsuukoPalloReunoihin(pallo);
             if (rajojenTarkkailija.tarkistaOhittaakoPalloPaatyrajan(pallo)) {
@@ -164,7 +159,6 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
         paivitettava.paivita();
         setDelay(25);
-        aika += 25;
     }
 
     public void setPaivitettava(Paivitettava paivitettava) {

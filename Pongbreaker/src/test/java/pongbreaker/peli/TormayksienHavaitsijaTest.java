@@ -101,5 +101,42 @@ public class TormayksienHavaitsijaTest {
         Laatikko kolmasLaatikko = new Laatikko(0, 0);
         assertTrue(havaitsija.osuuko(kolmasLaatikko));
     }
+    
+    @Test
+    public void palloReagoiOikeinKunOsuuLaatikkoon() {
+        Laatikko laatikko = new Laatikko(500, 100);
+        List<Peliolio> pelioliot = havaitsija.getPelioliot();
+        pelioliot.add(laatikko);
+        pallo.setX(500 - pallo.getR() + 1);
+        pallo.setTuhoutumaton(true);
+        pallo.setXNopeus(5);
+        havaitsija.tarkistaTormaykset();
+        assertTrue(pallo.getXNopeus() > 0);
+        pallo.setR(5);
+        pallo.setTuhoutumaton(false);
+        havaitsija.tarkistaTormaykset();
+        assertTrue(pallo.getXNopeus() < 0);
+        
+        pallo.setXNopeus(5);
+        pallo.setX(500 + pallo.getR() - 1);
+        pallo.setTuhoutumaton(true);
+        havaitsija.tarkistaTormaykset();
+        assertTrue(pallo.getXNopeus() > 0);
+        pallo.setR(5);
+        pallo.setTuhoutumaton(false);
+        havaitsija.tarkistaTormaykset();
+        assertTrue(pallo.getXNopeus() < 0);
+        
+//        pallo.setX(500);
+//        pallo.setY(100 - pallo.getR());
+//        pallo.setYNopeus(5);
+//        pallo.setTuhoutumaton(true);
+//        havaitsija.tarkistaTormaykset();
+//        assertTrue(pallo.getYNopeus() > 0);
+//        pallo.setR(5);
+//        pallo.setTuhoutumaton(false);
+//        havaitsija.tarkistaTormaykset();
+//        assertTrue(pallo.getYNopeus() < 0);
+    }
 
 }

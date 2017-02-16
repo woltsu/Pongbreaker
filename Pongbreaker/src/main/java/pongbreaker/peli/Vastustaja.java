@@ -35,7 +35,7 @@ public class Vastustaja {
      * Liikuttaa Vastustajan mailaa. Liikuttu matka riippuu seurattavan pallon
      * sijainnista sekä pelaajan kiihtyvyydestä.
      */
-    public void liiku() {
+    public boolean liiku() {
         if (maila.getY() < seurattavaPallo.getY()) {
 
             if (Math.abs(seurattavaPallo.getY() - maila.getY()) > nopeus) {
@@ -55,9 +55,12 @@ public class Vastustaja {
 
             }
 
+        } else {
+            return false;
         }
 
         maila.getHitbox().setLocation(maila.getX() - maila.getLeveys() / 2, maila.getY() - maila.getKorkeus() / 2);
+        return true;
     }
 
     public void reagoiPowerUpiin(PowerUp p) {
@@ -81,6 +84,10 @@ public class Vastustaja {
 
     public void setKiihtyvyys(double kiihtyvyys) {
         this.kiihtyvyys = kiihtyvyys;
+    }
+    
+    public double getNopeus() {
+        return this.nopeus;
     }
 
 }

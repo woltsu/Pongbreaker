@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+import pongbreaker.domain.PowerUp;
 
 public class VastustajaTest {
 
@@ -25,6 +26,7 @@ public class VastustajaTest {
         assertEquals(100, maila.getY());
         assertEquals(100 - maila.getLeveys() / 2, maila.getHitbox().x);
         assertEquals(100 - maila.getKorkeus() / 2, maila.getHitbox().y);
+        assertFalse(vastustaja.liiku());
     }
 
     @Test
@@ -95,6 +97,29 @@ public class VastustajaTest {
         assertEquals(90, maila.getY());
         assertEquals(90 - maila.getKorkeus() / 2, maila.getHitbox().y);
         assertEquals(100 - maila.getLeveys() / 2, maila.getHitbox().x);
+    }
+    
+    @Test
+    public void reagoiEriPoweruppeihinOikein() {
+        int mailanVanhaKorkeus = maila.getKorkeus();
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
+        assertEquals(mailanVanhaKorkeus + 20, maila.getKorkeus());
+        
+        double vanhaNopeus = vastustaja.getNopeus();
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        assertEquals(vanhaNopeus + 0.5, vastustaja.getNopeus(), 0);
+        
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        vastustaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        vastustaja.reagoiPowerUpiin(PowerUp.RESETOI_POWERUPIT);
+        
+        assertEquals(mailanVanhaKorkeus, maila.getKorkeus());
+        assertEquals(vanhaNopeus, vastustaja.getNopeus(), 0);
     }
 
 }

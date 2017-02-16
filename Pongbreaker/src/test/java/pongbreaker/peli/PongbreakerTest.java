@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+import pongbreaker.domain.PowerUp;
 
 public class PongbreakerTest {
 
@@ -32,12 +33,19 @@ public class PongbreakerTest {
     
     @Test
     public void pelinKaynnistaminenToimii() {
+        Pelaaja pelaaja = peli.getPelaaja();
+        int vanhaKorkeus = pelaaja.getMaila().getKorkeus();
+        double vanhaNopeus = pelaaja.getNopeus();
+        pelaaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
+        pelaaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
+        
         Pallo pallo = peli.getPallo();
         assertFalse(peli.onkoPaalla());
         
         pallo.setX(0);
         pallo.setY(0);
         pallo.setKiihtyvyys(10);
+        pallo.setTuhoutumaton(true);
         
         peli.kaynnistaPeli();
         
@@ -45,6 +53,11 @@ public class PongbreakerTest {
         assertEquals(120, pallo.getY());
         assertEquals(0.7, pallo.getKiihtyvyys(), 0);
         assertTrue(peli.onkoPaalla());
+        assertEquals(3, pallo.getXNopeus());
+        assertEquals(6, pallo.getR());
+        assertEquals(vanhaKorkeus, pelaaja.getMaila().getKorkeus());
+        assertEquals(vanhaNopeus, pelaaja.getNopeus(), 0);
+        assertFalse(pallo.getTuhoutumaton());
     }
 
 }

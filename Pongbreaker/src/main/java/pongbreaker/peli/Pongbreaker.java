@@ -192,8 +192,4 @@ public class Pongbreaker extends Timer implements ActionListener {
     public List<Peliolio> getPiirrettavat() {
         return this.piirrettavat;
     }
-
-    public int getAika() {
-        return aika;
-    }
 }

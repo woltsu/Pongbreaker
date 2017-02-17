@@ -115,7 +115,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     public void tarkistaPowerupit(List<Peliolio> laatikot) {
         for (Peliolio p : laatikot) {
             Laatikko laatikko = (Laatikko) p;
-            if (laatikko.sisaltaakoPowerupin()) {
+            if (laatikko.getSisaltaakoPowerupin()) {
                 PowerUp pu = laatikko.getPowerUp();
                 if (pu == PowerUp.TUHOUTUMATON_PALLO) {
                     pallo.setTuhoutumaton(true);
@@ -189,7 +189,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         return this.paatyrajanLeveys;
     }
 
-    public boolean onkoPaalla() {
+    public boolean getOnkoPaalla() {
         return this.onkoPaalla;
     }
 

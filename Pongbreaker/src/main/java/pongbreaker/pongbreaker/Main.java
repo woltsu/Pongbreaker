@@ -6,8 +6,12 @@ import pongbreaker.peli.Pongbreaker;
 
 public class Main {
 
+    /**
+     * Main-luokka.
+     * @param args .
+     */
     public static void main(String[] args) {
-        
+
         Pongbreaker peli = new Pongbreaker(500, 350);
 
         Kayttoliittyma kali = new Kayttoliittyma(peli);
@@ -23,7 +27,7 @@ public class Main {
 
         peli.setPaivitettava(kali.getPaivitettava());
         peli.start();
-        
+
     }
 
 }

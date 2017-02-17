@@ -37,7 +37,7 @@ public class Nappaimistonkuuntelija implements KeyListener {
             pelaaja.lisaaKiihtyvyytta();
 
         } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            if (!peli.onkoPaalla()) {
+            if (!peli.getOnkoPaalla()) {
                 peli.kaynnistaPeli();
             }
         }

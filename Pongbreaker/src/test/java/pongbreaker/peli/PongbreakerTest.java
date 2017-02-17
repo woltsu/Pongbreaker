@@ -40,7 +40,7 @@ public class PongbreakerTest {
         pelaaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
         
         Pallo pallo = peli.getPallo();
-        assertFalse(peli.onkoPaalla());
+        assertFalse(peli.getOnkoPaalla());
         
         pallo.setX(0);
         pallo.setY(0);
@@ -52,7 +52,7 @@ public class PongbreakerTest {
         assertEquals(240, pallo.getX());
         assertEquals(120, pallo.getY());
         assertEquals(0.7, pallo.getKiihtyvyys(), 0);
-        assertTrue(peli.onkoPaalla());
+        assertTrue(peli.getOnkoPaalla());
         assertEquals(3, pallo.getXNopeus());
         assertEquals(6, pallo.getR());
         assertEquals(vanhaKorkeus, pelaaja.getMaila().getKorkeus());

@@ -62,7 +62,7 @@ public class Laatikko extends Peliolio {
         return poistetaanko;
     }
 
-    public boolean sisaltaakoPowerupin() {
+    public boolean getSisaltaakoPowerupin() {
         return sisaltaakoPowerupin;
     }
 
@@ -70,9 +70,6 @@ public class Laatikko extends Peliolio {
         return powerUp;
     }
 
-    /**
-     * @see Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -94,9 +91,6 @@ public class Laatikko extends Peliolio {
         return true;
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics)
-     */
     @Override
     public void piirra(Graphics g) {
         if (sisaltaakoPowerupin) {
@@ -121,9 +115,6 @@ public class Laatikko extends Peliolio {
         g.fillRect(x - sivunPituus / 2, y - sivunPituus / 2, sivunPituus, sivunPituus);
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#reagoiOsumaan()
-     */
     @Override
     public void reagoiOsumaan() {
         hitpoints--;
@@ -132,9 +123,6 @@ public class Laatikko extends Peliolio {
         }
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#getHitbox()
-     */
     @Override
     public Rectangle getHitbox() {
         return hitbox;

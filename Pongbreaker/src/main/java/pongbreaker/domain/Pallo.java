@@ -97,6 +97,10 @@ public class Pallo extends Peliolio {
     public int getR() {
         return r;
     }
+    /**
+     * Muuttaa pallon säteen suuruutta sekä muuttaa myös hitboxin kokoa.
+     * @param r Uuden säteen koko.
+     */
 
     public void setR(int r) {
         this.r = r;
@@ -106,6 +110,11 @@ public class Pallo extends Peliolio {
     public boolean getTuhoutumaton() {
         return tuhoutumaton;
     }
+    
+    /**
+     * Muuttaa pallon 'tuhoutumattomaksi' ja kasvattaa pallon sädettä, jos se on alle 25.
+     * @param b Halutaanko tehdä pallosta tuhoutumaton ja kasvattaa sädettä.
+     */
 
     public void setTuhoutumaton(boolean b) {
         tuhoutumaton = b;
@@ -116,17 +125,11 @@ public class Pallo extends Peliolio {
         }
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#getHitbox()
-     */
     @Override
     public Rectangle getHitbox() {
         return hitbox;
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics)
-     */
     @Override
     public void piirra(Graphics g) {
         if (tuhoutumaton) {
@@ -150,9 +153,6 @@ public class Pallo extends Peliolio {
         //g.fillRect(x - r, y - r, 2 * r, 2 * r);
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#reagoiOsumaan()
-     */
     @Override
     public void reagoiOsumaan() {
         kaannaXNopeus();

@@ -40,40 +40,34 @@ public class Maila extends Peliolio {
     public int getKorkeus() {
         return korkeus;
     }
-    
+    /**
+     * Vaihtaa mailan sekä hitboxin y-koordinaattia.
+     * @param korkeus Uusi korkeus.
+     */
     public void setKorkeus(int korkeus) {
         this.korkeus = korkeus;
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
     }
-    
+
     public boolean getOnkoOsunutViimeksi() {
         return onkoOsunutViimeksi;
     }
-    
+
     public void setOnkoOsunutViimeksi(boolean b) {
         onkoOsunutViimeksi = b;
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#getHitbox()
-     */
     @Override
     public Rectangle getHitbox() {
         return hitbox;
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#piirra(java.awt.Graphics)
-     */
     @Override
     public void piirra(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
     }
 
-    /**
-     * @see pongbreaker.domain.Peliolio#reagoiOsumaan()
-     */
     @Override
     public void reagoiOsumaan() {
         onkoOsunutViimeksi = true;

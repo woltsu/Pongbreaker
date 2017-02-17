@@ -91,11 +91,15 @@ public class PalloTest {
         pallo.setYNopeus(5);
         int vanhaXNopeus = pallo.getXNopeus();
         int vanhaYNopeus = pallo.getYNopeus();
+        int vanhaX = pallo.getX();
+        int vanhaY = pallo.getY();
         double vanhaKiihtyvyys = pallo.getKiihtyvyys();
         pallo.reagoiOsumaan();
 
         assertTrue(pallo.getXNopeus() < 0);
         assertTrue(pallo.getYNopeus() > 0);
+        assertTrue(pallo.getX() != vanhaX);
+        assertTrue(pallo.getY() != vanhaY);
 
         assertEquals(vanhaKiihtyvyys + 0.02, pallo.getKiihtyvyys(), 0);
 

@@ -58,6 +58,14 @@ public class Laatikko extends Peliolio {
 
     }
 
+    public void setPowerUp(PowerUp powerUp) {
+        this.powerUp = powerUp;
+    }
+
+    public void setSisaltaakoPowerupin(boolean sisaltaakoPowerupin) {
+        this.sisaltaakoPowerupin = sisaltaakoPowerupin;
+    }
+
     public boolean getPoistetaanko() {
         return poistetaanko;
     }

@@ -1,10 +1,14 @@
 package pongbreaker.peli;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+import pongbreaker.domain.Peliolio;
 import pongbreaker.domain.PowerUp;
 
 public class PongbreakerTest {
@@ -30,7 +34,7 @@ public class PongbreakerTest {
         assertEquals(peli.getLeveys() / 2 - 10, peli.getPallo().getX());
         assertEquals(peli.getKorkeus() / 2 - 30, peli.getPallo().getY());
     }
-    
+
     @Test
     public void pelinKaynnistaminenToimii() {
         Pelaaja pelaaja = peli.getPelaaja();
@@ -38,17 +42,17 @@ public class PongbreakerTest {
         double vanhaNopeus = pelaaja.getNopeus();
         pelaaja.reagoiPowerUpiin(PowerUp.MAILA_KASVAA);
         pelaaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
-        
+
         Pallo pallo = peli.getPallo();
         assertFalse(peli.getOnkoPaalla());
-        
+
         pallo.setX(0);
         pallo.setY(0);
         pallo.setKiihtyvyys(10);
         pallo.setTuhoutumaton(true);
-        
+
         peli.kaynnistaPeli();
-        
+
         assertEquals(240, pallo.getX());
         assertEquals(120, pallo.getY());
         assertEquals(0.7, pallo.getKiihtyvyys(), 0);
@@ -60,4 +64,25 @@ public class PongbreakerTest {
         assertFalse(pallo.getTuhoutumaton());
     }
 
+    @Test
+    public void tarkistaPowerupitToimiiPallolle() {
+        Laatikko laatikko = new Laatikko(0, 0);
+        laatikko.setPowerUp(PowerUp.TUHOUTUMATON_PALLO);
+        laatikko.setSisaltaakoPowerupin(true);
+
+        List<Peliolio> laatikot = new ArrayList<>();
+        laatikot.add(laatikko);
+
+        peli.tarkistaPowerupit(laatikot);
+        Pallo pallo = peli.getPallo();
+        assertTrue(pallo.getTuhoutumaton());
+
+        pallo.setTuhoutumaton(false);
+        laatikko.setPowerUp(PowerUp.MAILA_KASVAA);
+        Pelaaja pelaaja = peli.getPelaaja();
+        pelaaja.getMaila().setOnkoOsunutViimeksi(true);
+        peli.tarkistaPowerupit(laatikot);
+
+        assertEquals(65, pelaaja.getMaila().getKorkeus());
+    }
 }

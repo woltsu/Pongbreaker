@@ -38,36 +38,25 @@
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>          <strong class="jxr_keyword">this</strong>.gfx = <strong class="jxr_keyword">this</strong>.img.createGraphics();
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>      }
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     * Piirtää grafiikoita käyttöliittymään.</em>
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     * @see JPanel#paintComponent(java.awt.Graphics)</em>
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     * @param g</em>
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>      @Override
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> paintComponent(Graphics g) {
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>          <strong class="jxr_keyword">super</strong>.paintComponent(gfx);
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <strong class="jxr_keyword">for</strong> (Peliolio piirrettava : <strong class="jxr_keyword">this</strong>.peli.getPiirrettavat()) {
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>              piirrettava.piirra(gfx);
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>          }
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">if</strong> (!peli.onkoPaalla()) {
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>              gfx.setColor(Color.white);
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>              gfx.drawString(<span class="jxr_string">"Press spacebar"</span>, 200, 175);
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>          }
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>          g.drawImage(img, 0, 0, <strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>      }
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_javadoccomment">     * Piirtää uuden kuvan käyttöliittymään.</em>
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">     * @see pongbreaker.gui.Paivitettava#paivita()</em>
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>      @Override
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paivita() {
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">super</strong>.repaint();
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>      }
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  }
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      @Override
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> paintComponent(Graphics g) {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <strong class="jxr_keyword">super</strong>.paintComponent(gfx);
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          <strong class="jxr_keyword">for</strong> (Peliolio piirrettava : <strong class="jxr_keyword">this</strong>.peli.getPiirrettavat()) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>              piirrettava.piirra(gfx);
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          <strong class="jxr_keyword">if</strong> (!peli.getOnkoPaalla()) {
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>              gfx.setColor(Color.white);
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>              gfx.drawString(<span class="jxr_string">"Press spacebar"</span>, 200, 175);
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          }
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          g.drawImage(img, 0, 0, <strong class="jxr_keyword">this</strong>);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      @Override
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paivita() {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">super</strong>.repaint();
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

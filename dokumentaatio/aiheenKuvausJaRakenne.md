@@ -15,7 +15,7 @@ Peliin olisi tarkoitus myös luoda erilaisia
 - Highscore-listan avaaminen  
 
 **Luokkakaavio:**  
-![Luokkakaavio](/dokumentaatio/Luokkakaavio.png)
+![Luokkakaavio](/dokumentaatio/Luokkakaavio2.png)
 
 
 **Pelaaja käynnistää pelin**  

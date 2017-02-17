@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 13.02.2017 | 3.5h | Pelilogiikkaa, refaktorointia ja testejä
 14.02.2017 | 1h | Pelilogiikkaa
 16.02.2017 | 2h | Testejä  
+17.02.2017 | 1.5h | Raportteja ja refaktorointia

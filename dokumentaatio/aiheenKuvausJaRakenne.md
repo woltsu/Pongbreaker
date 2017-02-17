@@ -7,7 +7,6 @@ Peliin olisi tarkoitus myös luoda erilaisia
 **Käyttäjät:** Pelaaja
 
 **Pelaajan toiminnot:** 
-- Vaikeustason valitseminen
 - Pelin aloittaminen
 - Oman mailansa liikuttaminen
 - Power upp:ien aktivoiminen

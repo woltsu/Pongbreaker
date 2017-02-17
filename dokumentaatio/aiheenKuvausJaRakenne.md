@@ -16,3 +16,7 @@ Peliin olisi tarkoitus myös luoda erilaisia
 
 **Luokkakaavio:**  
 ![Luokkakaavio](/dokumentaatio/Luokkakaavio.png)
+**Pelaaja käynnistää pelin**  
+![Sekvenssikaavio1](/dokumentaatio/sekvenssikaavio1.png)  
+**Pelaaja liikkuu ylös ja alas**  
+![Sekvenssikaavio2](/dokumentaatio/sekvenssikaavio2.png)

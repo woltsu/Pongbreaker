@@ -14,3 +14,4 @@ Päivä | Tunnit | Kuvaus
 08.02.2017 | 2.5h | JavaDoc, testejä ja raportteja
 13.02.2017 | 3.5h | Pelilogiikkaa, refaktorointia ja testejä
 14.02.2017 | 1h | Pelilogiikkaa
+16.02.2017 | 2h | Testejä  

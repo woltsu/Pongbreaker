@@ -48,41 +48,8 @@ public class TormayksienHavaitsija {
 
                     if (pelioliot.get(i).getClass() == Pallo.class) {
                         Pallo pallo = (Pallo) pelioliot.get(i);
-
                         int tulos = pelioliot.get(j).getHitbox().outcode(pallo.getX(), pallo.getY());
-
-                        if (tulos == Rectangle2D.OUT_TOP || tulos == Rectangle2D.OUT_BOTTOM) {
-                            if (pallo.getTuhoutumaton()) {
-                                if (pelioliot.get(j).getClass() != Laatikko.class) {
-                                    pallo.kaannaYNopeus();
-                                    pallo.kaannaXNopeus();
-                                    pallo.reagoiOsumaan();
-                                }
-                                pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.02);
-                            } else {
-                                pallo.kaannaYNopeus();
-                                pallo.kaannaXNopeus();
-                                pallo.reagoiOsumaan();
-                            }
-
-                            pelioliot.get(j).reagoiOsumaan();
-                            onkoTormayksia = true;
-                            continue;
-
-                        } else {
-                            if (pallo.getTuhoutumaton()) {
-                                if (pelioliot.get(j).getClass() != Laatikko.class) {
-                                    pallo.reagoiOsumaan();
-                                }
-                            } else {
-                                pallo.reagoiOsumaan();
-                            }
-                            pelioliot.get(j).reagoiOsumaan();
-                            onkoTormayksia = true;
-                            continue;
-
-                        }
-
+                        mistaSuunnastaOsuu(pallo, tulos, pelioliot.get(j));
                     }
 
                     //pelioliot.get(i).reagoiOsumaan();
@@ -92,6 +59,38 @@ public class TormayksienHavaitsija {
         }
 
         return onkoTormayksia;
+    }
+
+    private void mistaSuunnastaOsuu(Pallo pallo, int tulos, Peliolio peliolio) {
+
+        if (tulos == Rectangle2D.OUT_TOP || tulos == Rectangle2D.OUT_BOTTOM) {
+            if (pallo.getTuhoutumaton()) {
+                if (peliolio.getClass() != Laatikko.class) {
+                    pallo.kaannaYNopeus();
+                    pallo.kaannaXNopeus();
+                    pallo.reagoiOsumaan();
+                }
+                pallo.setKiihtyvyys(pallo.getKiihtyvyys() + 0.02);
+            } else {
+                pallo.kaannaYNopeus();
+                pallo.kaannaXNopeus();
+                pallo.reagoiOsumaan();
+            }
+
+            peliolio.reagoiOsumaan();
+
+        } else {
+            if (pallo.getTuhoutumaton()) {
+                if (peliolio.getClass() != Laatikko.class) {
+                    pallo.reagoiOsumaan();
+                }
+            } else {
+                pallo.reagoiOsumaan();
+            }
+            peliolio.reagoiOsumaan();
+
+        }
+
     }
 
     /**

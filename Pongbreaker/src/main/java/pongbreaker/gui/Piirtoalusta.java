@@ -30,12 +30,6 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         this.gfx = this.img.createGraphics();
     }
 
-    /**
-     * Piirtää grafiikoita käyttöliittymään.
-     *
-     * @see JPanel#paintComponent(java.awt.Graphics)
-     * @param g
-     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(gfx);
@@ -49,11 +43,6 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         g.drawImage(img, 0, 0, this);
     }
 
-    /**
-     * Piirtää uuden kuvan käyttöliittymään.
-     *
-     * @see pongbreaker.gui.Paivitettava#paivita()
-     */
     @Override
     public void paivita() {
         super.repaint();

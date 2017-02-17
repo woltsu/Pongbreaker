@@ -26,10 +26,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         this.pelaaja = peli.getPelaaja();
     }
 
-    /**
-     * @see KeyListener#keyPressed(java.awt.event.KeyEvent)
-     * @param e Painettu näppäin.
-     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -47,10 +43,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         }
     }
 
-    /**
-     * @see KeyListener#keyReleased(java.awt.event.KeyEvent)
-     * @param e Näppäin, joka päästettiin irti.
-     */
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -62,10 +54,6 @@ public class Nappaimistonkuuntelija implements KeyListener {
         }
     }
 
-    /**
-     * @see KeyListener#keyTyped(java.awt.event.KeyEvent)
-     * @param e Painettu näppäin.
-     */
     @Override
     public void keyTyped(KeyEvent e) {
     }

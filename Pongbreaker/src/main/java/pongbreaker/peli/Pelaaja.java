@@ -73,7 +73,12 @@ public class Pelaaja {
             this.kiihtyvyys -= 1;
         }
     }
-    
+
+    /**
+     * Metodi määrittää kuinka pelaaja reagoi kuhunkin power uppiin.
+     *
+     * @param p powerup.
+     */
     public void reagoiPowerUpiin(PowerUp p) {
         if (p == PowerUp.MAILA_KASVAA) {
             maila.setKorkeus(maila.getKorkeus() + 20);
@@ -83,7 +88,10 @@ public class Pelaaja {
             resetoiPowerupit();
         }
     }
-    
+
+    /**
+     * Metodi asettaa pelaajan attribuutit alkuperäiseen tilaan.
+     */
     public void resetoiPowerupit() {
         this.nopeus = 5;
         this.maila.setKorkeus(45);

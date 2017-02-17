@@ -63,6 +63,11 @@ public class Vastustaja {
         return true;
     }
 
+    /**
+     * Metodi määrittää kuinka vastustaja reagoi kuhunkin power uppiin.
+     *
+     * @param p powerup.
+     */
     public void reagoiPowerUpiin(PowerUp p) {
         if (p == PowerUp.MAILA_KASVAA) {
             maila.setKorkeus(maila.getKorkeus() + 20);
@@ -73,6 +78,9 @@ public class Vastustaja {
         }
     }
 
+    /**
+     * Metodi asettaa vastustajan attribuutit alkuperäiseen tilaan.
+     */
     public void resetoiPowerupit() {
         this.nopeus = 5;
         this.maila.setKorkeus(45);
@@ -85,7 +93,7 @@ public class Vastustaja {
     public void setKiihtyvyys(double kiihtyvyys) {
         this.kiihtyvyys = kiihtyvyys;
     }
-    
+
     public double getNopeus() {
         return this.nopeus;
     }

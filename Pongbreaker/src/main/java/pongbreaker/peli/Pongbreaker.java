@@ -55,6 +55,9 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.laatikkoTodnak = 0.01;
     }
 
+    /**
+     * Alustaa pelikentän olioita.
+     */
     private void alustaPiirrettavat() {
         this.pallo = new Pallo(6, this.leveys / 2 - 10, this.korkeus / 2 - 30);
         this.pelaaja = new Pelaaja(new Maila(this.paatyrajanLeveys, this.korkeus / 2 - 30));
@@ -104,6 +107,11 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.onkoPaalla = true;
     }
 
+    /**
+     * Tarkistaa onko laatikoissa, joihin pallo on osunut, power uppeja.
+     *
+     * @param laatikot Tarkistettavat laatikot.
+     */
     public void tarkistaPowerupit(List<Peliolio> laatikot) {
         for (Peliolio p : laatikot) {
             Laatikko laatikko = (Laatikko) p;
@@ -123,10 +131,6 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
     }
 
-    /**
-     * @see ActionListener#actionPerformed(java.awt.event.ActionEvent)
-     * @param e ActionEvent
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (onkoPaalla) {

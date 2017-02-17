@@ -26,11 +26,6 @@ public class Kayttoliittyma implements Runnable {
         this.peli = peli;
     }
 
-    /**
-     * Avaa ikkunan, jossa peliä pelataan.
-     *
-     * @see Runnable#run()
-     */
     @Override
     public void run() {
         frame = new JFrame("Pongbreaker");

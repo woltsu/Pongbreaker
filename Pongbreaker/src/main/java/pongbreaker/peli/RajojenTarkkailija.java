@@ -2,6 +2,10 @@ package pongbreaker.peli;
 
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
+/**
+ * Luokka pitää huolen siitä, ettei mm. maila ja pallo lähde pois pelikentältä.
+ * @author wolli
+ */
 
 public class RajojenTarkkailija {
 

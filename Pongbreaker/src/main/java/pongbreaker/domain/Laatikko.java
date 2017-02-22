@@ -48,7 +48,7 @@ public class Laatikko extends Peliolio {
                 this.powerUp = PowerUp.MAILA_KASVAA;
             } else if (luku < 0.82) {
                 this.powerUp = PowerUp.MAILA_NOPEUTUU;
-            } else if (luku < 0.95) {
+            } else if (luku < 0.92) {
                 this.powerUp = PowerUp.RESETOI_POWERUPIT;
             } else {
                 this.powerUp = PowerUp.TUHOUTUMATON_PALLO;

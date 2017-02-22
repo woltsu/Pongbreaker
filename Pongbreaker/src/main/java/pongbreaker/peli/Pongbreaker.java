@@ -97,7 +97,7 @@ public class Pongbreaker extends Timer implements ActionListener {
         laatikoita = 0;
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
-        pallo.setKiihtyvyys(0.7); //0.7
+        pallo.setKiihtyvyys(1); //0.7
         pallo.setXNopeus(3);
         pallo.setR(6);
         pelaaja.resetoiPowerupit();

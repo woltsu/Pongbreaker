@@ -16,6 +16,7 @@ public class Pelaaja {
     private double kiihtyvyys;
 
     private boolean liikkuuko;
+    private int pisteet;
 
     /**
      * Luokan konstruktori.
@@ -27,6 +28,7 @@ public class Pelaaja {
         this.nopeus = 5;
         this.kiihtyvyys = 0;
         this.liikkuuko = false;
+        this.pisteet = 0;
         //this.maila.setKorkeus(200);
     }
 
@@ -119,6 +121,14 @@ public class Pelaaja {
 
     public Maila getMaila() {
         return this.maila;
+    }
+    
+    public void setPisteet(int pisteet) {
+        this.pisteet = pisteet;
+    }
+    
+    public int getPisteet() {
+        return this.pisteet;
     }
 
 }

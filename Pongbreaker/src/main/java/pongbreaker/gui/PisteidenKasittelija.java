@@ -72,15 +72,21 @@ public class PisteidenKasittelija implements Paivitettava {
     public void paivita() {
         if (!peli.getOnkoPaalla()) {
             if (!this.naytetaanko) {
-                if (paaseekoListaan(peli.getPelaaja().getPisteet())) {
-                    String nimi = JOptionPane.showInputDialog(frame, "Anna nimi: ", "Nimi", JOptionPane.PLAIN_MESSAGE);
-                    lisaaHighscore(nimi, peli.getPelaaja().getPisteet());
-                }
+                lisaaListaan();
                 JOptionPane.showMessageDialog(frame, haeHighscoret(), "Top 6", JOptionPane.PLAIN_MESSAGE);
                 this.naytetaanko = true;
             }
         } else {
             this.naytetaanko = false;
+        }
+    }
+
+    private void lisaaListaan() {
+        if (paaseekoListaan(peli.getPelaaja().getPisteet())) {
+            String nimi = JOptionPane.showInputDialog(frame, "Anna nimi: ", "Nimi", JOptionPane.PLAIN_MESSAGE);
+            if (nimi != null && !nimi.isEmpty()) {
+                lisaaHighscore(nimi, peli.getPelaaja().getPisteet());
+            }
         }
     }
 

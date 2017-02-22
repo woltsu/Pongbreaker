@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 14.02.2017 | 1h | Pelilogiikkaa
 16.02.2017 | 1.5h | Testejä  
 17.02.2017 | 1.5h | Raportteja ja refaktorointia
+22.02.2017 | 5h | Highscore-järjestelmä ja refaktorointia

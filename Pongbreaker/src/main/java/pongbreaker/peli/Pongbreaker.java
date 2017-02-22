@@ -1,10 +1,12 @@
 package pongbreaker.peli;
 
+import pongbreaker.gui.PisteidenKasittelija;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.Timer;
 import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
@@ -24,7 +26,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     private int korkeus;
     private int paatyrajanLeveys;
     private boolean onkoPaalla;
-    private Paivitettava paivitettava;
+    private List<Paivitettava> paivitettavat;
     private Pallo pallo;
     private Pelaaja pelaaja;
     private Vastustaja vastustaja;
@@ -52,6 +54,8 @@ public class Pongbreaker extends Timer implements ActionListener {
         this.rajojenTarkkailija = new RajojenTarkkailija(leveys, korkeus, 30);
         this.kumpiOsuiViimeksi = "Vastustaja";
         this.laatikkoTodnak = 0.01;
+        this.paivitettavat = new ArrayList<>();
+        this.onkoPaalla = true;
     }
 
     /**
@@ -96,14 +100,12 @@ public class Pongbreaker extends Timer implements ActionListener {
         laatikoita = 0;
         pallo.setX(leveys / 2 - 10);
         pallo.setY(korkeus / 2 - 30);
-        pallo.setKiihtyvyys(1); //0.7
-        pallo.setXNopeus(3);
-        pallo.setR(6);
+        pallo.resetoi();
         pelaaja.resetoiPowerupit();
         vastustaja.resetoiPowerupit();
         pallo.setTuhoutumaton(false);
         laatikkoTodnak = 0.01;
-        this.onkoPaalla = true;
+        onkoPaalla = true;
         pelaaja.setPisteet(0);
     }
 
@@ -162,13 +164,16 @@ public class Pongbreaker extends Timer implements ActionListener {
             rajojenTarkkailija.tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
             rajojenTarkkailija.tarkistaMeneekoMailaYliRajojen(vastustaja.getMaila());
         }
-        paivitettava.paivita();
+
+        for (Paivitettava paivitettava : paivitettavat) {
+            paivitettava.paivita();
+        }
+        
         setDelay(25);
-        System.out.println(pelaaja.getPisteet());
     }
 
-    public void setPaivitettava(Paivitettava paivitettava) {
-        this.paivitettava = paivitettava;
+    public void lisaaPaivitettava(Paivitettava p) {
+        this.paivitettavat.add(p);
     }
 
     public Pallo getPallo() {

@@ -44,7 +44,7 @@ public class PongbreakerTest {
         pelaaja.reagoiPowerUpiin(PowerUp.MAILA_NOPEUTUU);
 
         Pallo pallo = peli.getPallo();
-        assertFalse(peli.getOnkoPaalla());
+        assertTrue(peli.getOnkoPaalla());
 
         pallo.setX(0);
         pallo.setY(0);

@@ -2,6 +2,7 @@ package pongbreaker.pongbreaker;
 
 import javax.swing.SwingUtilities;
 import pongbreaker.gui.Kayttoliittyma;
+import pongbreaker.gui.PisteidenKasittelija;
 import pongbreaker.peli.Pongbreaker;
 
 public class Main {
@@ -11,13 +12,13 @@ public class Main {
      * @param args .
      */
     public static void main(String[] args) {
-
+        
         Pongbreaker peli = new Pongbreaker(500, 350);
 
         Kayttoliittyma kali = new Kayttoliittyma(peli);
         SwingUtilities.invokeLater(kali);
 
-        while (kali.getPaivitettava() == null) {
+        while (kali.getPiirtoalusta() == null) {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
@@ -25,7 +26,8 @@ public class Main {
             }
         }
 
-        peli.setPaivitettava(kali.getPaivitettava());
+        peli.lisaaPaivitettava(kali.getPiirtoalusta());
+        peli.lisaaPaivitettava(kali.getPisteidenKasittelija());
         peli.start();
 
     }

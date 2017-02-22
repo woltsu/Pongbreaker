@@ -2,6 +2,8 @@ package pongbreaker.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import pongbreaker.peli.Pongbreaker;
@@ -15,6 +17,7 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     private Piirtoalusta piirtoalusta;
+    private PisteidenKasittelija p;
     private Pongbreaker peli;
 
     /**
@@ -39,6 +42,7 @@ public class Kayttoliittyma implements Runnable {
         frame.setLocationRelativeTo(null);
 
         frame.setVisible(true);
+
     }
 
     /**
@@ -52,10 +56,16 @@ public class Kayttoliittyma implements Runnable {
 
         Nappaimistonkuuntelija kuuntelija = new Nappaimistonkuuntelija(peli);
         frame.addKeyListener(kuuntelija);
+
+        this.p = new PisteidenKasittelija("highscore.txt", frame, peli);
     }
 
-    public Paivitettava getPaivitettava() {
-        return piirtoalusta;
+    public Paivitettava getPiirtoalusta() {
+        return this.piirtoalusta;
+    }
+    
+    public Paivitettava getPisteidenKasittelija() {
+        return this.p;
     }
 
 }

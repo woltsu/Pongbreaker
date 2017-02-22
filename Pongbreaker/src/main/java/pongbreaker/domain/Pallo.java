@@ -37,6 +37,12 @@ public class Pallo extends Peliolio {
         tuhoutumaton = false;
     }
 
+    public void resetoi() {
+        setKiihtyvyys(1);
+        setXNopeus(3);
+        setR(6);
+    }
+
     /**
      * Muuttaa x- ja y-koordinaatteja riippuen x- ja y-nopeuksista sekä
      * kiihtyvyydestä. Päivittää samalla hitboxin sijainnin.
@@ -97,8 +103,10 @@ public class Pallo extends Peliolio {
     public int getR() {
         return r;
     }
+
     /**
      * Muuttaa pallon säteen suuruutta sekä muuttaa myös hitboxin kokoa.
+     *
      * @param r Uuden säteen koko.
      */
 
@@ -110,12 +118,13 @@ public class Pallo extends Peliolio {
     public boolean getTuhoutumaton() {
         return tuhoutumaton;
     }
-    
+
     /**
-     * Muuttaa pallon 'tuhoutumattomaksi' ja kasvattaa pallon sädettä, jos se on alle 25.
+     * Muuttaa pallon 'tuhoutumattomaksi' ja kasvattaa pallon sädettä, jos se on
+     * alle 25.
+     *
      * @param b Halutaanko tehdä pallosta tuhoutumaton ja kasvattaa sädettä.
      */
-
     public void setTuhoutumaton(boolean b) {
         tuhoutumaton = b;
         if (b) {

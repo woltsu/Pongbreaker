@@ -1,5 +1,6 @@
 package pongbreaker.peli;
 
+import pongbreaker.gui.PisteidenKasittelija;
 import pongbreaker.domain.Maila;
 import pongbreaker.domain.Pallo;
 
@@ -13,6 +14,7 @@ public class RajojenTarkkailija {
     private int leveys;
     private int korkeus;
     private int paatyrajanLeveys;
+    private PisteidenKasittelija p;
 
     /**
      * Luokan konstruktori.

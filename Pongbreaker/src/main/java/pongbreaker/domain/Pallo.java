@@ -37,6 +37,9 @@ public class Pallo extends Peliolio {
         tuhoutumaton = false;
     }
 
+    /**
+     * Palauttaa pallon ominaisuudet alkuperäiseen tilaan.
+     */
     public void resetoi() {
         setKiihtyvyys(1);
         setXNopeus(3);
@@ -109,7 +112,6 @@ public class Pallo extends Peliolio {
      *
      * @param r Uuden säteen koko.
      */
-
     public void setR(int r) {
         this.r = r;
         this.hitbox = new Rectangle(x - r, y - r, 2 * r, 2 * r);

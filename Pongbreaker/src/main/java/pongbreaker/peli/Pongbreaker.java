@@ -1,12 +1,10 @@
 package pongbreaker.peli;
 
-import pongbreaker.gui.PisteidenKasittelija;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 import javax.swing.Timer;
 import pongbreaker.domain.Laatikko;
 import pongbreaker.domain.Maila;
@@ -92,8 +90,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     }
 
     /**
-     * 'Käynnistaa pelin', eli resetoi pallon sijainnin ja kiihtyvyyden, sekä
-     * poistaa laatikot kentältä.
+     * Käynnistää pelin, eli resetoi olioiden tilat ja paikat.
      */
     public void kaynnistaPeli() {
         tormayksienHavaitsija.poistaKaikkiLaatikot();
@@ -165,11 +162,9 @@ public class Pongbreaker extends Timer implements ActionListener {
             rajojenTarkkailija.tarkistaMeneekoMailaYliRajojen(pelaaja.getMaila());
             rajojenTarkkailija.tarkistaMeneekoMailaYliRajojen(vastustaja.getMaila());
         }
-
         for (Paivitettava paivitettava : paivitettavat) {
             paivitettava.paivita();
         }
-        
         setDelay(25);
     }
 

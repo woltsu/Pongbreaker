@@ -11,6 +11,11 @@ import javax.swing.JOptionPane;
 import pongbreaker.peli.Pongbreaker;
 import pongbreaker.peli.Score;
 
+/**
+ * Luokka pitää kirjaa pisteistä ja kirjoittaa niitä tiedostoon.
+ *
+ * @author wolli
+ */
 public class PisteidenKasittelija implements Paivitettava {
 
     private String tiedosto;
@@ -19,6 +24,13 @@ public class PisteidenKasittelija implements Paivitettava {
     private boolean naytetaanko;
     private List<Score> highscores;
 
+    /**
+     * Luokan konstruktori.
+     *
+     * @param tiedosto Tiedosto, johon pistemäärät kirjoitetaan.
+     * @param frame Tarvitsee tätä kysyessään pelaajan nimeä.
+     * @param peli Ottaa pelistä pelaajan pisteet.
+     */
     public PisteidenKasittelija(String tiedosto, Frame frame, Pongbreaker peli) {
         this.tiedosto = tiedosto;
         this.frame = frame;
@@ -28,6 +40,12 @@ public class PisteidenKasittelija implements Paivitettava {
         this.haeHighscoret();
     }
 
+    /**
+     * Kirjoittaa uuden pistemäärän tiedostoon.
+     *
+     * @param nimi Pelaajan nimi.
+     * @param score Pistemäärä.
+     */
     public void lisaaHighscore(String nimi, int score) {
         try {
             FileWriter kirjoittaja = new FileWriter(new File(tiedosto), true);

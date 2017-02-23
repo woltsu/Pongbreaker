@@ -1,10 +1,21 @@
 package pongbreaker.peli;
 
+/**
+ * Luokkaa käytetään pisteiden tallentamisessa.
+ * @author wolli
+ */
+
 public class Score implements Comparable<Score> {
     
     String nimi;
     int pisteet;
 
+    /**
+     * Luokan konstruktori.
+     * @param nimi Nimimerkki.
+     * @param pisteet Pistemäärä.
+     */
+    
     public Score(String nimi, int pisteet) {
         this.nimi = nimi;
         this.pisteet = pisteet;

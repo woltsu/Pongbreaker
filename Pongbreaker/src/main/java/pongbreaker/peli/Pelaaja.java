@@ -122,11 +122,11 @@ public class Pelaaja {
     public Maila getMaila() {
         return this.maila;
     }
-    
+
     public void setPisteet(int pisteet) {
         this.pisteet = pisteet;
     }
-    
+
     public int getPisteet() {
         return this.pisteet;
     }

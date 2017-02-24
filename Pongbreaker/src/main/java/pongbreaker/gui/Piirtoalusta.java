@@ -39,10 +39,11 @@ public class Piirtoalusta extends JPanel implements Paivitettava {
         for (Peliolio piirrettava : this.peli.getPiirrettavat()) {
             piirrettava.piirra(gfx);
         }
+        gfx.setColor(Color.white);
         if (!peli.getOnkoPaalla()) {
-            gfx.setColor(Color.white);
             gfx.drawString("Press spacebar", 200, 175);
         }
+        gfx.drawString("Score: " + peli.getPelaaja().getPisteet(), 50, 20);
         g.drawImage(img, 0, 0, this);
     }
 

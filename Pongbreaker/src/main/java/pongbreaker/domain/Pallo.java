@@ -169,8 +169,6 @@ public class Pallo extends Peliolio {
         kaannaXNopeus();
         Random random = new Random();
 
-        liiku();
-
         int uusiXNopeus = 2 + random.nextInt(1);
         int uusiYNopeus = 2 + random.nextInt(1);
 
@@ -185,6 +183,8 @@ public class Pallo extends Peliolio {
         } else {
             yNopeus = -1 * uusiYNopeus;
         }
+
+        liiku();
 
         if (kiihtyvyys < 4) { //2.45
             kiihtyvyys += 0.02;

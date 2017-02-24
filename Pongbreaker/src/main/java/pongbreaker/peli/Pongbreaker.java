@@ -138,6 +138,9 @@ public class Pongbreaker extends Timer implements ActionListener {
             rajojenTarkkailija.tarkistaOsuukoPalloReunoihin(pallo);
             if (rajojenTarkkailija.tarkistaOhittaakoPalloPaatyrajan(pallo)) {
                 onkoPaalla = false;
+                if (pallo.getX() > this.leveys / 2) {
+                    pelaaja.setPisteet(pelaaja.getPisteet() * 10);
+                }
                 return;
             }
             pelaaja.liiku();

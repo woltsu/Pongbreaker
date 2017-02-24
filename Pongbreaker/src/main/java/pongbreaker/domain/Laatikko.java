@@ -46,9 +46,9 @@ public class Laatikko extends Peliolio {
             double luku = random.nextDouble();
             if (luku < 0.45) {
                 this.powerUp = PowerUp.MAILA_KASVAA;
-            } else if (luku < 0.80) {
+            } else if (luku < 0.85) {
                 this.powerUp = PowerUp.MAILA_NOPEUTUU;
-            } else if (luku < 0.90) {
+            } else if (luku < 0.96) {
                 this.powerUp = PowerUp.RESETOI_POWERUPIT;
             } else {
                 this.powerUp = PowerUp.TUHOUTUMATON_PALLO;

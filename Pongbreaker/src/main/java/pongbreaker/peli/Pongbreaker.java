@@ -170,7 +170,10 @@ public class Pongbreaker extends Timer implements ActionListener {
         }
         setDelay(25);
     }
-
+    /**
+     * Lisää päivitettävä-rajapinnan toteuttavan olion listaan.
+     * @param p Päivitettävä olio.
+     */
     public void lisaaPaivitettava(Paivitettava p) {
         this.paivitettavat.add(p);
     }
@@ -182,7 +185,7 @@ public class Pongbreaker extends Timer implements ActionListener {
     public Pelaaja getPelaaja() {
         return this.pelaaja;
     }
-    
+
     public Vastustaja getVastustaja() {
         return this.vastustaja;
     }

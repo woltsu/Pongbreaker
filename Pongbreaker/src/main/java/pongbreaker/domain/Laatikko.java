@@ -90,9 +90,7 @@ public class Laatikko extends Peliolio {
             return false;
         }
         final Laatikko other = (Laatikko) obj;
-        if (this.sivunPituus != other.sivunPituus) {
-            return false;
-        }
+        
         if (!Objects.equals(this.hitbox, other.hitbox)) {
             return false;
         }

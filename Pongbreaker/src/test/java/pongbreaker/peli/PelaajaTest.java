@@ -104,4 +104,17 @@ public class PelaajaTest {
         assertEquals(vanhaNopeus, pelaaja.getNopeus(), 0);
     }
 
+    @Test
+    public void liikkumisenRajatapauksia() {
+        pelaaja.setKiihtyvyys(0.5);
+        pelaaja.setLiikkuuko(false);
+        pelaaja.liiku();
+        assertEquals(0, pelaaja.getKiihtyvyys(), 0);
+        
+        pelaaja.setKiihtyvyys(-0.5);
+        pelaaja.setLiikkuuko(false);
+        pelaaja.liiku();
+        assertEquals(0, pelaaja.getKiihtyvyys(), 0);
+    }
+
 }

@@ -84,5 +84,13 @@ public class PongbreakerTest {
         peli.tarkistaPowerupit(laatikot);
 
         assertEquals(65, pelaaja.getMaila().getKorkeus());
+        assertEquals(10, pelaaja.getPisteet());
+        
+        Vastustaja vastustaja = peli.getVastustaja();
+        pelaaja.getMaila().setOnkoOsunutViimeksi(false);
+        vastustaja.getMaila().setOnkoOsunutViimeksi(true);
+        peli.tarkistaPowerupit(laatikot);
+        
+        assertEquals(65, vastustaja.getMaila().getKorkeus());
     }
 }

@@ -182,6 +182,10 @@ public class Pongbreaker extends Timer implements ActionListener {
     public Pelaaja getPelaaja() {
         return this.pelaaja;
     }
+    
+    public Vastustaja getVastustaja() {
+        return this.vastustaja;
+    }
 
     public int getLeveys() {
         return this.leveys;

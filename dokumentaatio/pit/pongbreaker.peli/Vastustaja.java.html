@@ -1,0 +1,1783 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Vastustaja.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package pongbreaker.peli;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pongbreaker.domain.Maila;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pongbreaker.domain.Pallo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import pongbreaker.domain.PowerUp;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Luokka kuvaa peliss&#228; olevaa vastustajaa, jonka mailalla on eri ominaisuuksia.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Vastustaja liikkuu yksinkertaisella teko&#228;lyll&#228;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author wolli</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Vastustaja {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Maila maila;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Pallo seurattavaPallo;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double kiihtyvyys;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double nopeus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Luokan konstruktori.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param maila Vastustajan maila.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param seurattavaPallo Pallo, jota vastustaja seuraa.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Vastustaja(Maila maila, Pallo seurattavaPallo) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_28'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.maila = maila;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_29'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.seurattavaPallo = seurattavaPallo;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.kiihtyvyys = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.nopeus = 5;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Liikuttaa Vastustajan mailaa. Liikuttu matka riippuu seurattavan pallon</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * sijainnista sek&#228; pelaajan kiihtyvyydest&#228;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return true jos maila on liikkunut, false muulloin.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean liiku() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_40'>2</a>
+<span>
+1. liiku : changed conditional boundary &rarr; KILLED<br/>
+2. liiku : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (maila.getY() &#60; seurattavaPallo.getY()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_42'>3</a>
+<span>
+1. liiku : changed conditional boundary &rarr; SURVIVED<br/>
+2. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. liiku : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (Math.abs(seurattavaPallo.getY() - maila.getY()) &#62; nopeus) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_43'/>
+43
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_43'>3</a>
+<span>
+1. liiku : Replaced double multiplication with division &rarr; KILLED<br/>
+2. liiku : Replaced integer addition with subtraction &rarr; KILLED<br/>
+3. liiku : removed call to pongbreaker/domain/Maila::setY &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                maila.setY(maila.getY() + (int) (kiihtyvyys * nopeus));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_46'>4</a>
+<span>
+1. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. liiku : Replaced double multiplication with division &rarr; KILLED<br/>
+3. liiku : Replaced integer addition with subtraction &rarr; KILLED<br/>
+4. liiku : removed call to pongbreaker/domain/Maila::setY &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                maila.setY(maila.getY() + (int) (kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_50'>2</a>
+<span>
+1. liiku : changed conditional boundary &rarr; KILLED<br/>
+2. liiku : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        } else if (maila.getY() &#62; seurattavaPallo.getY()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_51'/>
+51
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_51'>3</a>
+<span>
+1. liiku : changed conditional boundary &rarr; SURVIVED<br/>
+2. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. liiku : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (Math.abs(seurattavaPallo.getY() - maila.getY()) &#62; nopeus) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_52'/>
+52
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_52'>3</a>
+<span>
+1. liiku : Replaced double multiplication with division &rarr; KILLED<br/>
+2. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. liiku : removed call to pongbreaker/domain/Maila::setY &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                maila.setY(maila.getY() - (int) (kiihtyvyys * nopeus));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_55'>4</a>
+<span>
+1. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. liiku : Replaced double multiplication with division &rarr; KILLED<br/>
+3. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+4. liiku : removed call to pongbreaker/domain/Maila::setY &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                maila.setY(maila.getY() - (int) (kiihtyvyys * (Math.abs(seurattavaPallo.getY() - maila.getY()))));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_60'>1</a>
+<span>
+1. liiku : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_63'>5</a>
+<span>
+1. liiku : Replaced integer division with multiplication &rarr; KILLED<br/>
+2. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+3. liiku : Replaced integer division with multiplication &rarr; KILLED<br/>
+4. liiku : Replaced integer subtraction with addition &rarr; KILLED<br/>
+5. liiku : removed call to java/awt/Rectangle::setLocation &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        maila.getHitbox().setLocation(maila.getX() - maila.getLeveys() / 2, maila.getY() - maila.getKorkeus() / 2);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_64'>1</a>
+<span>
+1. liiku : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Metodi m&#228;&#228;ritt&#228;&#228; kuinka vastustaja reagoi kuhunkin power uppiin.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param p powerup.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void reagoiPowerUpiin(PowerUp p) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_73'>1</a>
+<span>
+1. reagoiPowerUpiin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (p == PowerUp.MAILA_KASVAA) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_74'>2</a>
+<span>
+1. reagoiPowerUpiin : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. reagoiPowerUpiin : removed call to pongbreaker/domain/Maila::setKorkeus &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            maila.setKorkeus(maila.getKorkeus() + 20);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_75'>1</a>
+<span>
+1. reagoiPowerUpiin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        } else if (p == PowerUp.MAILA_NOPEUTUU) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_76'>1</a>
+<span>
+1. reagoiPowerUpiin : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            nopeus += 0.5;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_77'>1</a>
+<span>
+1. reagoiPowerUpiin : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        } else if (p == PowerUp.RESETOI_POWERUPIT) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_78'>1</a>
+<span>
+1. reagoiPowerUpiin : removed call to pongbreaker/peli/Vastustaja::resetoiPowerupit &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            resetoiPowerupit();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_80'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Metodi asettaa vastustajan attribuutit alkuper&#228;iseen tilaan.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void resetoiPowerupit() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_86'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.nopeus = 5;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_87'>1</a>
+<span>
+1. resetoiPowerupit : removed call to pongbreaker/domain/Maila::setKorkeus &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.maila.setKorkeus(45);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Maila getMaila() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_91'>1</a>
+<span>
+1. getMaila : mutated return of Object value for pongbreaker/peli/Vastustaja::getMaila to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return maila;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setKiihtyvyys(double kiihtyvyys) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_95'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        this.kiihtyvyys = kiihtyvyys;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_96'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getNopeus() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_99'>1</a>
+<span>
+1. getNopeus : replaced return of double value with -(x + 1) for pongbreaker/peli/Vastustaja::getNopeus &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.nopeus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@7f27f59b_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaEiLiikuJosPallonYOnSamaKuinMailanY(pongbreaker.peli.VastustajaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_42'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_43'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setY &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setY &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaEiLiikuJosPallonYOnSamaKuinMailanY(pongbreaker.peli.VastustajaTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaEiLiikuJosPallonYOnSamaKuinMailanY(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_51'>51</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_51'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setY &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setY &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaEiLiikuJosPallonYOnSamaKuinMailanY(pongbreaker.peli.VastustajaTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest)</span></span> removed call to java/awt/Rectangle::setLocation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_64'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>liiku<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setKorkeus &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>reagoiPowerUpiin<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/peli/Vastustaja::resetoiPowerupit &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>resetoiPowerupit<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> removed call to pongbreaker/domain/Maila::setKorkeus &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getMaila<br/><b>Killed by : </b>pongbreaker.peli.RajojenTarkkailijaTest.havaitseeJosPalloMeneePaatyrajojenYli(pongbreaker.peli.RajojenTarkkailijaTest)</span></span> mutated return of Object value for pongbreaker/peli/Vastustaja::getMaila to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@7f27f59b_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@7f27f59b_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getNopeus<br/><b>Killed by : </b>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest)</span></span> replaced return of double value with -(x + 1) for pongbreaker/peli/Vastustaja::getNopeus &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>pongbreaker.peli.PongbreakerTest.alustaaPallonOikein(pongbreaker.peli.PongbreakerTest) (1 ms)</li><li>pongbreaker.peli.PongbreakerTest.tarkistaPowerupitToimiiPallolle(pongbreaker.peli.PongbreakerTest) (0 ms)</li><li>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest) (0 ms)</li><li>pongbreaker.peli.RajojenTarkkailijaTest.palloEiVoiYlittaaRajoja(pongbreaker.peli.RajojenTarkkailijaTest) (0 ms)</li><li>pongbreaker.peli.RajojenTarkkailijaTest.havaitseeJosPalloMeneePaatyrajojenYli(pongbreaker.peli.RajojenTarkkailijaTest) (0 ms)</li><li>pongbreaker.peli.RajojenTarkkailijaTest.mailaEiVoiMennaYliRajojen(pongbreaker.peli.RajojenTarkkailijaTest) (0 ms)</li><li>pongbreaker.peli.VastustajaTest.vastustajaEiLiikuJosPallonYOnSamaKuinMailanY(pongbreaker.peli.VastustajaTest) (1 ms)</li><li>pongbreaker.peli.PongbreakerTest.alustaaLeveydenJaKorkeudenOikein(pongbreaker.peli.PongbreakerTest) (2 ms)</li><li>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnYliNeljaYksikkoa(pongbreaker.peli.VastustajaTest) (1 ms)</li><li>pongbreaker.peli.RajojenTarkkailijaTest.havaitseeJosPalloOsuuReunoihin(pongbreaker.peli.RajojenTarkkailijaTest) (0 ms)</li><li>pongbreaker.peli.VastustajaTest.reagoiEriPoweruppeihinOikein(pongbreaker.peli.VastustajaTest) (1 ms)</li><li>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranYlospainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest) (0 ms)</li><li>pongbreaker.peli.PongbreakerTest.pelinKaynnistaminenToimii(pongbreaker.peli.PongbreakerTest) (0 ms)</li><li>pongbreaker.peli.VastustajaTest.vastustajaJaHitboxLiikkuuOikeanMaaranAlaspainKunPallonJaMailanYErotusOnAlleViisiYksikkoa(pongbreaker.peli.VastustajaTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.8
+
+</body>
+</html>

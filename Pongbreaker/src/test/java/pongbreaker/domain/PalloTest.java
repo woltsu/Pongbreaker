@@ -1,5 +1,6 @@
 package pongbreaker.domain;
 
+import java.awt.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -53,10 +54,12 @@ public class PalloTest {
     public void pallonJaHitboxinLiikkuminenOikealleJaVasemmalleToimii() {
         pallo.liiku();
         assertEquals(5 + pallo.getXNopeus(), pallo.getX());
+        assertEquals(5 + pallo.getXNopeus(), pallo.x);
         assertEquals(pallo.getXNopeus(), pallo.getHitbox().x);
         pallo.kaannaXNopeus();
         pallo.liiku();
         assertEquals(5, pallo.getX());
+        assertEquals(5, pallo.x);
         assertEquals(0, pallo.getHitbox().x);
     }
 
@@ -64,10 +67,12 @@ public class PalloTest {
     public void pallonJaHitboxinLiikkuminenYlosJaAlasToimii() {
         pallo.liiku();
         assertEquals(5 + pallo.getYNopeus(), pallo.getY());
+        assertEquals(5 + pallo.getYNopeus(), pallo.y);
         assertEquals(pallo.getYNopeus(), pallo.getHitbox().y);
         pallo.kaannaYNopeus();
         pallo.liiku();
         assertEquals(5, pallo.getY());
+        assertEquals(5, pallo.y);
         assertEquals(0, pallo.getHitbox().y);
     }
 
@@ -108,6 +113,34 @@ public class PalloTest {
         }
 
         assertEquals(4, pallo.getKiihtyvyys(), 0.1);
+        pallo.kaannaYNopeus();
+        pallo.reagoiOsumaan();
+        assertTrue(pallo.getYNopeus() < 0);
     }
-
+    
+    @Test
+    public void resetoiOikein() {
+        pallo.resetoi();
+        assertEquals(1, pallo.getKiihtyvyys(), 0);
+        assertEquals(3, pallo.getXNopeus());
+        assertEquals(6, pallo.getR());
+    }
+    
+    @Test
+    public void liikkuminenToimiiSuperille() {
+        pallo.setKiihtyvyys(2);
+        pallo.setYNopeus(5);
+        pallo.setXNopeus(5);
+        pallo.liiku();
+        assertEquals(5 + 2 * pallo.getXNopeus(), pallo.x);
+        assertEquals(5 + 2 * pallo.getYNopeus(), pallo.y);
+    }
+    
+    @Test
+    public void setRMuuttaaHitboxia() {
+        Rectangle rec = new Rectangle(pallo.x - 2, pallo.y - 2, 2 * 2, 2 * 2);
+        pallo.setR(2);
+        assertTrue(rec.equals(pallo.getHitbox()));
+    }
+    
 }

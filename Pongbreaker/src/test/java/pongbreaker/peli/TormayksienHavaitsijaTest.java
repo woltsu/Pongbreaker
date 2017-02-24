@@ -1,5 +1,6 @@
 package pongbreaker.peli;
 
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;
@@ -66,7 +67,7 @@ public class TormayksienHavaitsijaTest {
         pallo.paivitaHitbox();
         assertTrue(havaitsija.tarkistaTormaykset());
     }
-    
+
     @Test
     public void poistaaLaatikotJoihinOsuttu() {
         Laatikko laatikko = new Laatikko(0, 0);
@@ -79,7 +80,7 @@ public class TormayksienHavaitsijaTest {
         havaitsija.poistaLaatikotJoihinOsuttu();
         assertEquals(3, pelioliot.size());
     }
-    
+
     @Test
     public void poistaaKaikkiLaatikot() {
         List<Peliolio> pelioliot = havaitsija.getPelioliot();
@@ -90,7 +91,7 @@ public class TormayksienHavaitsijaTest {
         havaitsija.poistaKaikkiLaatikot();
         assertEquals(3, pelioliot.size());
     }
-    
+
     @Test
     public void osuukoToimii() {
         List<Peliolio> pelioliot = havaitsija.getPelioliot();
@@ -101,7 +102,7 @@ public class TormayksienHavaitsijaTest {
         Laatikko kolmasLaatikko = new Laatikko(0, 0);
         assertTrue(havaitsija.osuuko(kolmasLaatikko));
     }
-    
+
     @Test
     public void palloReagoiOikeinKunOsuuLaatikkoon() {
         Laatikko laatikko = new Laatikko(500, 100);
@@ -116,7 +117,7 @@ public class TormayksienHavaitsijaTest {
         pallo.setTuhoutumaton(false);
         havaitsija.tarkistaTormaykset();
         assertTrue(pallo.getXNopeus() < 0);
-        
+
         pallo.setXNopeus(5);
         pallo.setX(500 + pallo.getR() - 1);
         pallo.setTuhoutumaton(true);
@@ -126,17 +127,43 @@ public class TormayksienHavaitsijaTest {
         pallo.setTuhoutumaton(false);
         havaitsija.tarkistaTormaykset();
         assertTrue(pallo.getXNopeus() < 0);
-        
-//        pallo.setX(500);
-//        pallo.setY(100 - pallo.getR());
-//        pallo.setYNopeus(5);
-//        pallo.setTuhoutumaton(true);
-//        havaitsija.tarkistaTormaykset();
-//        assertTrue(pallo.getYNopeus() > 0);
-//        pallo.setR(5);
-//        pallo.setTuhoutumaton(false);
-//        havaitsija.tarkistaTormaykset();
-//        assertTrue(pallo.getYNopeus() < 0);
+    }
+
+    @Test
+    public void mistaSuunnastaOsuuToimii() {
+        Pallo pallo = new Pallo(5, 100, 100);
+        pallo.setXNopeus(10);
+        pallo.setYNopeus(10);
+        pallo.setKiihtyvyys(1);
+        Laatikko laatikko = new Laatikko(50, 50);
+        Maila maila = new Maila(10, 50);
+        pallo.setTuhoutumaton(true);
+        double vanhaKiihtyvyys = pallo.getKiihtyvyys();
+        havaitsija.mistaSuunnastaOsuu(pallo, Rectangle2D.OUT_TOP, laatikko);
+        assertEquals(vanhaKiihtyvyys + 0.02, pallo.getKiihtyvyys(), 0);
+
+        havaitsija.mistaSuunnastaOsuu(pallo, Rectangle2D.OUT_TOP, maila);
+        assertTrue(pallo.getYNopeus() < 0);
+        assertTrue(pallo.getXNopeus() > 0);
+
+        pallo.setTuhoutumaton(false);
+        int hp = laatikko.getHitpoints();
+        havaitsija.mistaSuunnastaOsuu(pallo, Rectangle2D.OUT_TOP, laatikko);
+        assertTrue(pallo.getYNopeus() > 0);
+        assertTrue(pallo.getXNopeus() > 0);
+        assertEquals(hp - 1, laatikko.getHitpoints());
+
+        pallo.setTuhoutumaton(true);
+        havaitsija.mistaSuunnastaOsuu(pallo, Rectangle2D.OUT_LEFT, maila);
+        assertTrue(pallo.getYNopeus() > 0);
+        assertTrue(pallo.getXNopeus() < 0);
+
+        pallo.setTuhoutumaton(false);
+        havaitsija.mistaSuunnastaOsuu(pallo, Rectangle2D.OUT_RIGHT, laatikko);
+        assertTrue(pallo.getYNopeus() > 0);
+        assertTrue(pallo.getXNopeus() > 0);
+        assertEquals(hp - 2, laatikko.getHitpoints());
+
     }
 
 }

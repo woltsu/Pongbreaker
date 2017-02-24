@@ -51,6 +51,8 @@ public class LaatikkoTest {
         assertFalse(laatikko.equals(toinenLaatikko));
         assertFalse(laatikko.equals(null));
         assertFalse(laatikko.equals(new Pallo(1, 1, 1)));
+        Laatikko kolmasLaatikko = new Laatikko(0, 0);
+        assertTrue(laatikko.equals(kolmasLaatikko));
     }
 
 }

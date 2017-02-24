@@ -61,7 +61,15 @@ public class TormayksienHavaitsija {
         return onkoTormayksia;
     }
 
-    private void mistaSuunnastaOsuu(Pallo pallo, int tulos, Peliolio peliolio) {
+    /**
+     * Määrittelee mistä suunnasta pallo osuu tiettyyn peliolioon ja sen
+     * perusteella reagoi tietyllä tavalla.
+     *
+     * @param pallo Pelin pallo.
+     * @param tulos Suunta, josta pallo osuu toiseen peliolioon.
+     * @param peliolio Peliolio, johon pallo on osunut.
+     */
+    public void mistaSuunnastaOsuu(Pallo pallo, int tulos, Peliolio peliolio) {
 
         if (tulos == Rectangle2D.OUT_TOP || tulos == Rectangle2D.OUT_BOTTOM) {
             if (pallo.getTuhoutumaton()) {

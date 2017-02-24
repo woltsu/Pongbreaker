@@ -9,5 +9,5 @@ pelaajan mailaan eikä ole siinä välissä osunut vastustajan mailaan. Power-up
 - pinkki kasvattaa mailan pituutta
 - keltainen nopeuttaa mailaa
 - valkoinen poistaa kaikkien aiempien power-uppien vaikutukset (mutta ei pisteitä)
-- punainen tekee pelistä nopeatempoisemman
+- punainen tekee pelistä nopeatempoisemman (pieni todennäköisyys spawnata kentälle)
 - tumman harmaa ei tee mitään, mutta siihen pitää osua 2 kertaa, jotta se katoaa pelikentältä

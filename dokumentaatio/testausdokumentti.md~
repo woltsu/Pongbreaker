@@ -1,2 +1,0 @@
-En testannut automaattisesti peliolion periviä luokkia, jotka piirtävät itsensä. En myöskään testannut Pongbreaker-luokan sisältämää actionPerformed-metodia enkä
-Laatikko-luokan sisältämää kohtaa, jossa käytetään Random-oliota.

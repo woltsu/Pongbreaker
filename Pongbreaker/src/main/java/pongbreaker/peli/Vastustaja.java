@@ -34,6 +34,7 @@ public class Vastustaja {
     /**
      * Liikuttaa Vastustajan mailaa. Liikuttu matka riippuu seurattavan pallon
      * sijainnista sekä pelaajan kiihtyvyydestä.
+     *
      * @return true jos maila on liikkunut, false muulloin.
      */
     public boolean liiku() {

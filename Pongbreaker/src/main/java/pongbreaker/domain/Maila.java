@@ -3,7 +3,20 @@ package pongbreaker.domain;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.shape.Circle;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  * Luokka kuvaa pelikentällä olevia mailoja.
@@ -12,6 +25,7 @@ import javafx.scene.shape.Circle;
  */
 public class Maila extends Peliolio {
 
+    private Clip clip;
     private int leveys;
     private int korkeus;
 
@@ -19,7 +33,7 @@ public class Maila extends Peliolio {
     private boolean onkoOsunutViimeksi;
 
     /**
-     * Luokan konstruktori.
+     * Luokan konstruktori. Luo samalla Clip:in.
      *
      * @param x mailan x-arvo koordinaatistossa.
      * @param y mailan y-arvo koordinaatistossa.
@@ -31,6 +45,18 @@ public class Maila extends Peliolio {
         this.korkeus = 45;
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
         this.onkoOsunutViimeksi = false;
+
+        String tiedosto = "maila.wav";
+        File soundFile = new File(tiedosto);
+
+        try {
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     public int getLeveys() {
@@ -40,8 +66,10 @@ public class Maila extends Peliolio {
     public int getKorkeus() {
         return korkeus;
     }
+
     /**
      * Vaihtaa mailan sekä hitboxin y-koordinaattia.
+     *
      * @param korkeus Uusi korkeus.
      */
     public void setKorkeus(int korkeus) {
@@ -71,7 +99,11 @@ public class Maila extends Peliolio {
     @Override
     public void reagoiOsumaan() {
         onkoOsunutViimeksi = true;
-        //Äänet
+        if (clip.isRunning()) {
+            clip.stop();
+        }
+        clip.setFramePosition(0);
+        clip.start();
     }
 
 }

@@ -1,4 +1,3 @@
 /Pongbreaker/target/
 /Pongbreaker/nbproject/
-/highscore.txt~
-/highscores.txt~
+*.txt

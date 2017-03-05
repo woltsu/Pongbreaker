@@ -45,16 +45,14 @@ public class Maila extends Peliolio {
         this.korkeus = 45;
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
         this.onkoOsunutViimeksi = false;
-
-//        File soundFile = new File(getClass().getClassLoader().getResource("test/maila.wav").getPath());
-//
-//        try {
-//            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-//            clip = AudioSystem.getClip();
-//            clip.open(audioIn);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        
+        try {
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(getClass().getClassLoader().getResourceAsStream("test/maila.wav"));
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

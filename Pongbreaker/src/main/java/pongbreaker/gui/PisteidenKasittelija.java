@@ -3,8 +3,10 @@ package pongbreaker.gui;
 import java.awt.Frame;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +23,7 @@ import pongbreaker.peli.Score;
 public class PisteidenKasittelija implements Paivitettava {
 
     private String tiedosto;
+    private File file;
     private Frame frame;
     private Pongbreaker peli;
     private boolean naytetaanko;
@@ -40,6 +43,12 @@ public class PisteidenKasittelija implements Paivitettava {
         this.naytetaanko = false;
         this.highscores = new ArrayList<>();
         this.haeHighscoret();
+        try {
+            this.file = new File("highscore.txt");
+            this.file.createNewFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -50,8 +59,7 @@ public class PisteidenKasittelija implements Paivitettava {
      */
     public void lisaaHighscore(String nimi, int score) {
         try {
-            
-            FileWriter kirjoittaja = new FileWriter(new File(getClass().getClassLoader().getResource("test/highscore.txt").getPath()), true);
+            FileWriter kirjoittaja = new FileWriter(file, true);
             kirjoittaja.write(nimi + ":" + score + "\n");
             kirjoittaja.close();
         } catch (Exception e) {
@@ -63,9 +71,7 @@ public class PisteidenKasittelija implements Paivitettava {
         String palautus = "";
         List<Score> scores = new ArrayList<>();
         try {
-            InputStream is = getClass().getClassLoader().getResourceAsStream("test/highscore.txt");
-            //System.out.println(getClass().getClassLoader().getResourceAsStream("test/highscore.txt"));
-            Scanner lukija = new Scanner(is);
+            Scanner lukija = new Scanner(file);
 
             while (lukija.hasNextLine()) {
                 String[] osat = lukija.nextLine().split(":");

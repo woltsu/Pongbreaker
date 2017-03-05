@@ -18,3 +18,4 @@ Päivä | Tunnit | Kuvaus
 17.02.2017 | 1.5h | Raportteja ja refaktorointia
 22.02.2017 | 5h | Highscore-järjestelmä ja refaktorointia
 24.02.2017 | 3h | Raportteja ja testejä
+01.03.2017 | 1h | Raportteja

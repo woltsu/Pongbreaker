@@ -19,3 +19,4 @@ Päivä | Tunnit | Kuvaus
 22.02.2017 | 5h | Highscore-järjestelmä ja refaktorointia
 24.02.2017 | 3h | Raportteja ja testejä
 01.03.2017 | 1h | Raportteja
+05.03.2017 | 3h | jar-tiedoston toimimaan saaminen ja dokumenttejen päivityksiä

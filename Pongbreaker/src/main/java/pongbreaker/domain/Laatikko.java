@@ -25,7 +25,8 @@ public class Laatikko extends Peliolio {
     private PowerUp powerUp;
 
     /**
-     * Luokan konstruktori.
+     * Luokan konstruktori. Arpoo samalla sisältääkö laatikko power-upin, ja jos
+     * sisältää, niin minkä power-upin.
      *
      * @param x laatikon x-arvo koordinaatistossa
      * @param y laatikon y-arvo koordinaatistossa
@@ -90,7 +91,7 @@ public class Laatikko extends Peliolio {
             return false;
         }
         final Laatikko other = (Laatikko) obj;
-        
+
         if (!Objects.equals(this.hitbox, other.hitbox)) {
             return false;
         }

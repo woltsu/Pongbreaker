@@ -7,4 +7,4 @@ Laatikko-luokan sisältämää kohtaa, jossa käytetään Random-oliota. Testasi
 
 2. Jos pallo tulee esim. ylhäältä alas mailaa kohti, ja mailaa liikutetaan palloa päin siten, että mailan yläosa osuu palloon "vauhdissa", niin on mahdollista, että pallo menee hetkellisesti mailan sisälle. Tällöin tosin peli yleensä samalla myös loppuu. 
 
-3. Jar-tiedostossa äänet eivätkä highscoren tallentaminen toimi.  
+3. Jar-tiedostossa äänet eivät toimi

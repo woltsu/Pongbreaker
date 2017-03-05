@@ -46,16 +46,15 @@ public class Maila extends Peliolio {
         this.hitbox = new Rectangle(x - leveys / 2, y - korkeus / 2, leveys, korkeus);
         this.onkoOsunutViimeksi = false;
 
-        String tiedosto = "maila.wav";
-        File soundFile = new File(tiedosto);
-
-        try {
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-            clip = AudioSystem.getClip();
-            clip.open(audioIn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        File soundFile = new File(getClass().getClassLoader().getResource("test/maila.wav").getPath());
+//
+//        try {
+//            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+//            clip = AudioSystem.getClip();
+//            clip.open(audioIn);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -99,11 +98,11 @@ public class Maila extends Peliolio {
     @Override
     public void reagoiOsumaan() {
         onkoOsunutViimeksi = true;
-        if (clip.isRunning()) {
-            clip.stop();
-        }
-        clip.setFramePosition(0);
-        clip.start();
+//        if (clip.isRunning()) {
+//            clip.stop();
+//        }
+//        clip.setFramePosition(0);
+//        clip.start();
     }
 
 }

@@ -3,6 +3,8 @@ package pongbreaker.gui;
 import java.awt.Frame;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,7 +50,8 @@ public class PisteidenKasittelija implements Paivitettava {
      */
     public void lisaaHighscore(String nimi, int score) {
         try {
-            FileWriter kirjoittaja = new FileWriter(new File(tiedosto), true);
+            
+            FileWriter kirjoittaja = new FileWriter(new File(getClass().getClassLoader().getResource("test/highscore.txt").getPath()), true);
             kirjoittaja.write(nimi + ":" + score + "\n");
             kirjoittaja.close();
         } catch (Exception e) {
@@ -60,7 +63,9 @@ public class PisteidenKasittelija implements Paivitettava {
         String palautus = "";
         List<Score> scores = new ArrayList<>();
         try {
-            Scanner lukija = new Scanner(new File(tiedosto));
+            InputStream is = getClass().getClassLoader().getResourceAsStream("test/highscore.txt");
+            //System.out.println(getClass().getClassLoader().getResourceAsStream("test/highscore.txt"));
+            Scanner lukija = new Scanner(is);
 
             while (lukija.hasNextLine()) {
                 String[] osat = lukija.nextLine().split(":");

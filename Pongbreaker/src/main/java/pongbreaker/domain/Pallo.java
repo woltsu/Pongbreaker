@@ -41,9 +41,9 @@ public class Pallo extends Peliolio {
      * Palauttaa pallon ominaisuudet alkuperäiseen tilaan.
      */
     public void resetoi() {
-        setKiihtyvyys(1);
-        setXNopeus(3);
-        setR(6);
+        this.kiihtyvyys = 1;
+        this.xNopeus = 3;
+        this.r = 6;
     }
 
     /**
@@ -131,7 +131,7 @@ public class Pallo extends Peliolio {
         tuhoutumaton = b;
         if (b) {
             if (r <= 20) {
-                setR(r + 5);
+                r += 5;
             }
         }
     }
